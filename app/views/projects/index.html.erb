@@ -1,6 +1,16 @@
-<% @projects.each do |p| %>
-  <h3><%= link_to p.title, project_path(p) %></h3>
-  <p><%= p.description%></p>
-<% end %>
+<% if current_user.present? %>
 
-<h3><%= link_to "Create New Project", new_project_path %></h3>
+  <% @projects.each do |p| %>
+    <h3><%= link_to p.title, project_path(p) %></h3>
+    <p><%= p.description%></p>
+  <% end %>
+  <%= link_to "Create New Project", new_project_path, class: "btn btn-primary" %>
+
+<% else %>
+
+  <h2>Welcome to Hawks Annotation! Sign in or sign up to continue</h2>
+  <br>
+  <%= image_tag("welcome_annotation.jpg", size: "1000x580") %>
+  <!--<h2><%= @welcome %></h2>-->
+  
+<% end %>

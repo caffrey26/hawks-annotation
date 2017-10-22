@@ -3,15 +3,18 @@ class ProjectsController < ApplicationController
   before_action :find_project, only:[:show, :update, :edit, :destroy]
   
   def index
-      @projects = Project.all.order("created_at DESC")
+      if(current_user.present?)
+          @projects = Project.where(user_id: current_user.id).order("created_at DESC")
+        #   @welcome = "Welcome to Hawks Annotation! Sign in or sign up to continue"
+      end
   end
   
   def new
-     @project = Project.new
+     @project = current_user.projects.build
   end
   
   def create
-     @project = Project.new(params_valid)
+     @project = current_user.projects.build(params_valid)
      if @project.save
          redirect_to root_path
      else
