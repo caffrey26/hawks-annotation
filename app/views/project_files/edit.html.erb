@@ -1,4 +1,6 @@
-<%= simple_form_for @project_file, url: @url, :method => :post do |f| %>
+<h1>Edit Project File</h1>
+
+<%= simple_form_for @project_file, url: @url, :method => :patch do |f| %>
   <%= f.input :file_name, label: "Name of the File" %>
   <%= f.text_area :description%> </br>
   <%= f.button :submit, class: "btn btn-primary"%>

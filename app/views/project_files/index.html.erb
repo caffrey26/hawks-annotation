@@ -1,0 +1,10 @@
+<h2><%= link_to Project.find(params[:project_id]).title, project_path(id: params[:project_id]) %> files</h2>
+
+<% @project_files.each do |p| %>
+  <h3><%= link_to p.file_name, project_project_file_path(id: p.id) %></h3>
+  <p><%= p.description%></p>
+<% end %>
+
+</br>
+
+<%=link_to "+ Add a new file", new_project_project_file_path(project_id: params[:project_id]), class: "btn btn-primary" %>
