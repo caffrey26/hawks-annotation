@@ -23,6 +23,8 @@ class ProjectsController < ApplicationController
   end
   
   def show
+      @projects = Project.find(params[:id]) 
+      @project_files = @project.project_files
   end
   
   def update

@@ -4,3 +4,13 @@
 <%= link_to "Back", root_path, class: "btn btn-default" %> &nbsp;
 <%= link_to "Edit", edit_project_path(@project), class: "btn btn-info" %> &nbsp;
 <%= link_to "Delete", project_path(@project), method: :delete, data: {confirm: "Are you sure you want to delete this project?"}, class: "btn btn-danger" %>
+
+<% # Prashanth %>
+
+<% @project_files.each do |file| %>
+<tr>
+<td><%= link_to file.file_name, all_files_path(file)  %></td>
+</tr>
+<% end %>
+
+<p><%=link_to "+ Add a new file", new_project_file_path, class: "btn btn-primary" %></p>
