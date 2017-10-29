@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :projects do
     resources :project_files
+    resources :questions do
+      resources :answers
+    end
   end
 
   # get '/projects/:id' => 'projects#show', as: :all_projects

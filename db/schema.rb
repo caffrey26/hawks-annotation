@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026234119) do
+ActiveRecord::Schema.define(version: 20171029221442) do
 
   create_table "project_files", force: :cascade do |t|
     t.string   "file_name"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 20171026234119) do
     t.integer  "admin_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "project_id"
+    t.text     "type"
   end
 
   create_table "users", force: :cascade do |t|
