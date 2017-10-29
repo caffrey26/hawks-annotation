@@ -3,7 +3,12 @@ class ProjectsController < ApplicationController
   before_action :find_project, only:[:show, :update, :edit, :destroy, :show_and_select_user]
   
   def show_and_select_user
-          @users = User.where.not(id: current_user.id)
+        #   @usersAssignedToProject = ProjectUser.where(project_id: :id)
+          @users = User.where.not(id: ProjectUser.where(project_id: params[:id]).pluck(:user_id))
+          if @users.empty? then 
+              flash[:success] = "All users already added to the project"
+              redirect_to project_path(params[:id])
+          end
         #   @welcome = "Welcome to Hawks Annotation! Sign in or sign up to continue"
   end
   def index
@@ -17,7 +22,7 @@ class ProjectsController < ApplicationController
     # @student = Student.find(params[:student_id])
     
         
-        @project = Project.find(params[:project_id])
+        @project = Project.find(params[:id])
         @user = User.find(params[:project][:user_ids])
         @projectUser = @project.project_users.create(user_id: @user.id)
         if @projectUser.save
