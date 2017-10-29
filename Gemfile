@@ -35,9 +35,8 @@ gem 'devise', '~> 4.3'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  gem 'rspec' 
   gem 'rspec-rails'
-
+  gem "rspec"
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'sqlite3'
