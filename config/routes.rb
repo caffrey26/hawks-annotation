@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :projects do
     resources :project_files
     resources :questions do
-      resources :answers
+      resources :options
     end
   end
 
