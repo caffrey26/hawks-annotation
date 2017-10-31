@@ -11,4 +11,5 @@
 </div>
 </br>
 </br>
-<%= link_to "View File", @project_file.attachment.url, class: "btn btn-primary",  target: :_blank %> </br>
+<iframe src=<%= @project_file.attachment.url %> width="900" height="650" style="border: none;"> </iframe>
+<!--<%= link_to "View File", @project_file.attachment.url, class: "btn btn-primary",  target: :_blank %> </br>-->
