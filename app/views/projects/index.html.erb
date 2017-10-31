@@ -1,15 +1,8 @@
 <% if current_user.present? %>
-<h4> <u>Admin Projects</u> </h4>
-  <% @adminprojects.each do |p| %>
-    <h3><%= link_to p.title, project_path(p) %></h3>
-    <p><%= p.description%></p>
-  <% end %>
-<h4> <u>Other Projects</u> </h4>
-  <% @otherprojects.each do |p| %>
-    <h3><%= link_to p.title, project_path(p) %></h3>
-    <p><%= p.description%></p>
-  <% end %>
-  <%= link_to "+ Create New Project", new_project_path, class: "btn btn-primary" %>
+
+<%= render "display_projects" %>
+<%= if @otherprojects.present? then render "display_other_projects" end%>
+<%= link_to "+ Create New Project", new_project_path, class: "btn btn-primary" %>
 
 <% else %>
 
@@ -19,3 +12,6 @@
   <!--<h2><%= @welcome %></h2>-->
   
 <% end %>
+
+
+

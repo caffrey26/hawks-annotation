@@ -1,0 +1,19 @@
+<h3> Personal Projects</h3>
+ 
+<table>
+  <tr>
+    <th>Project Name</th>
+    <th>Project Description</th>
+    <!--<th></th>-->
+    <!--<th></th>-->
+    <!--<th></th>-->
+  </tr>
+ 
+<% @adminprojects.each do |p| %>
+  <tr>
+    <td><%= link_to p.title, project_path(p) %></td>
+    <td><%= p.description %></td>
+  </tr>
+<% end %>
+</table>
+<br>
