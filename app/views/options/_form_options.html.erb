@@ -1,0 +1,6 @@
+<%= simple_form_for @option, url: @url, :method => :post do |f| %>
+  <%= f.input :option_text, label: "Option", :required => true %>
+  </br>
+  <%= f.button :submit, class: "btn btn-primary"%>
+<% end %>
+

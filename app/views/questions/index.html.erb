@@ -1,0 +1,10 @@
+<h2><%= link_to Project.find(params[:project_id]).title, project_path(id: params[:project_id]) %> questions</h2>
+
+<% @questions.each do |p| %>
+  <h3><%= link_to p.title, project_question_path(id: p.id) %></h3>
+  <p><%= p.description%></p>
+<% end %>
+
+</br>
+
+<%=link_to "+ Add a new question", new_project_question_path(project_id: params[:project_id]), class: "btn btn-primary" %>

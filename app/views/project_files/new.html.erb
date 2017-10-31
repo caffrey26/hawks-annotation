@@ -1,0 +1,8 @@
+<h2>Add a file to the project "<%= Project.find(@project_file.project_id).title %>"</h2>
+
+<%= simple_form_for @project_file,html: { multipart: true }, url: @url, :method => :post do |f| %>
+  <%= f.input :file_name, label: "Name of the File" %>
+  <%= f.text_area :description%> </br>
+  <%= f.input :attachment, as: :file %> </br>
+  <%= f.button :submit, class: "btn btn-primary"%>
+<% end %>

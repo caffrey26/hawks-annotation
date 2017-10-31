@@ -1,0 +1,4 @@
+<%= form_for @project, :url => add_user_path(@project), :method => :POST do |f| %>
+  <%= collection_select(:project, :user_ids, @users, :id, :email) %>
+  <%= f.button :submit, class: "btn btn-primary"%>
+<% end %>

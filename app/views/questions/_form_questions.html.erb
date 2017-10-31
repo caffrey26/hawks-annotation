@@ -1,0 +1,30 @@
+<!--Questions-->
+<!--<% if @question.errors.any? %>-->
+<!--  <div id="error_explanation">-->
+<!--    <h2>-->
+<!--      <%= pluralize(@question.errors.count, "error") %>-->
+<!--      prohibited this post from being saved:-->
+<!--    </h2>-->
+
+<!--    <ul>-->
+<!--    <% @question.errors.full_messages.each do |msg| %>-->
+<!--      <li><%= msg %></li>-->
+<!--    <% end %>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--<% end %>-->
+<%= simple_form_for @question, url: @url, :method => :post do |f| %>
+  <%= f.input :title, label: "Question Title", :required => true %>
+  <%= f.text_area :description%> </br>
+  <!--<%= f.input :title, label: "Question Title" %>-->
+  <!--<%= select_tag "type", "<option>Enter Text</option><option>Select from options</option>".html_safe %>-->
+  <%= radio_button_tag(:type, "T") %>
+  <%= label_tag(:type_text, "Accepts Text as answer") %>
+  <%= radio_button_tag(:type, "O") %>
+  <%= label_tag(:type_option, "Accepts Options as answer") %>
+  <!--<%= f.input :description, label: "Description" %>-->
+  <!--<%= f.text_area :description%> </br>-->
+  </br>
+  <%= f.button :submit, class: "btn btn-primary"%>
+<% end %>
+

@@ -1,0 +1,23 @@
+
+<h3>Options</h3>
+ 
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+    <!--<th></th>-->
+    <!--<th></th>-->
+  </tr>
+ 
+<% @question.options.each do |o| %>
+  <tr>
+    <td><%= o.option_text %></td>
+    <td><%= link_to "Edit", edit_project_question_option_path(question_id: params[:id],id: o.id) %></td>
+    <td><%= link_to "Remove", project_question_option_path(question_id: params[:id], id: o.id), method: :delete, data: { confirm: "Are you sure?" } %></td>
+
+  </tr>
+<% end %>
+</table>
+<br>
+ 
