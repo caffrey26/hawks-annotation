@@ -1,8 +1,9 @@
+<%= flash[:success] %>
 <h2><%= @question.title %></h2>
 <p><%= @question.description %></p>
 <p><%= @question.created_at %></p>
-
 </br>
+<%= if @question.q_type == "O" and @question.options.present? then render "options" end%>
 <%= if @question.q_type == "O" then link_to "Add Options", new_project_question_option_path(question_id: params[:id]), class: "btn btn-default" end %>
 <!--<%= link_to "Add Options",project_questions_path(params[:project_id]) , class: "btn btn-default" %> &nbsp;-->
 <%= link_to "Back", project_questions_path(params[:project_id]), class: "btn btn-default" %> &nbsp;
