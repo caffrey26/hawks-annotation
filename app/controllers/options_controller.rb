@@ -1,7 +1,7 @@
 class OptionsController < ApplicationController
     def new
-        abc
-        @option = option.new(project_id: params[:project_id])
-        @url = project_Options_path
+        @option = Option.new(question_id: params[:question_id])
+        @url = project_question_options_path
+        render html: "Under Constuction"
     end
 end

@@ -3,10 +3,9 @@
 <p><%= @question.created_at %></p>
 
 </br>
-<%= if @question.q_type == "O" then link_to "Add Options", '#', class: "btn btn-default" end %>
+<%= if @question.q_type == "O" then link_to "Add Options", new_project_question_option_path(question_id: params[:id]), class: "btn btn-default" end %>
 <!--<%= link_to "Add Options",project_questions_path(params[:project_id]) , class: "btn btn-default" %> &nbsp;-->
 <%= link_to "Back", project_questions_path(params[:project_id]), class: "btn btn-default" %> &nbsp;
 <%= link_to "Edit", edit_project_question_path(id: @question.id), class: "btn btn-info" %> &nbsp;
 <%= link_to "Delete", project_question_path(id: @question.id), method: :delete, data: {confirm: "Are you sure you want to delete this question?"}, class: "btn btn-danger" %>
-
 </br>
