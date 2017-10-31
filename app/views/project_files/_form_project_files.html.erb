@@ -1,5 +1,7 @@
 <%= simple_form_for @project_file, url: @url, :method => :post do |f| %>
   <%= f.input :file_name, label: "Name of the File" %>
-  <%= f.text_area :description%> </br>
+  <%= f.text_area :description%> 
+  <%= f.file_field :p_file %>
+  </br>
   <%= f.button :submit, class: "btn btn-primary"%>
 <% end %>

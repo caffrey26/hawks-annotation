@@ -1,5 +1,9 @@
 <h2><%= @project_file.file_name %></h2>
 <p><%= @project_file.description %></p>
+<p><%= File.basename(@project_file.p_file.path) %></p>
+<%= image_tag @project_file.p_file_url%>
+
+
 <p><%= @project_file.created_at %></p>
 
 </br>
