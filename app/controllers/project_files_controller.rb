@@ -48,7 +48,7 @@ class ProjectFilesController < ApplicationController
     private
   
       def params_valid
-         params.require(:project_file).permit(:file_name, :description, :p_file)
+         params.require(:project_file).permit(:file_name, :description, :attachment)
       end
     
 end

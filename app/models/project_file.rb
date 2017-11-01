@@ -1,4 +1,4 @@
 class ProjectFile < ActiveRecord::Base
+    mount_uploader :attachment, AttachmentUploader
     belongs_to :project
-    mount_uploader :p_file, AvatarUploader
 end

@@ -41,7 +41,7 @@ class ProjectsController < ApplicationController
      @project = current_user.projects.create(params_valid)
      if @project.save
          @project.update(admin_id: current_user.id)
-         redirect_to root_path
+         redirect_to projects_path
      else
          render 'new'
      end
@@ -71,6 +71,11 @@ class ProjectsController < ApplicationController
   def find_project
     #   render html: "Here"
       @project = Project.find(params[:id])
+  end
+  
+  
+  def homepage
+    @user = current_user
   end
   
   private

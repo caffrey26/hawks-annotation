@@ -1,0 +1,20 @@
+<% if current_user.present? %>
+
+<div class="jumbotron">
+<h3>Hi <%= current_user.email[/[^@]+/].capitalize  %>! </h3>
+</br>
+<h4>
+<ul>
+    <li>The project view has a list of all the projects you have created or are a part of. </li>
+    <li>You can create projects, add files to these projects and add questions to them.</li> 
+</ul>
+</h4>
+</div>
+<% else %>
+
+  <h2>Welcome to Hawks Annotation! Sign in or sign up to continue</h2>
+  <br>
+  <%= image_tag("welcome_annotation.jpg", class:"img-responsive", size: "50%xauto") %>
+  <!--<h2><%= @welcome %></h2>-->
+  
+<% end %>

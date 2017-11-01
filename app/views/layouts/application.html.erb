@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
   <title>Workspace</title>
+=======
+  <title>Hawks Annotation</title>
+>>>>>>> formatting
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -11,11 +15,36 @@
     <div class="container">
       <%= link_to "Hawks Annotation", root_path, class: "navbar-brand" %>
         <ul class="nav navbar-nav navbar-left">
+<<<<<<< HEAD
           <li><%= link_to "Projects", projects_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if current_user.present? %>
             <li><%= link_to "Sign out",destroy_user_session_path, method: :delete %></li>
+=======
+          <% if current_user.present? %>
+            <li><%= link_to "All Projects", projects_path %></li>
+          <% end %>
+          <% if (controller_name == "projects" && action_name == "show") || controller_name == "project_files" || controller_name == "questions" %>
+            <% project_id =  (controller_name == "projects" && action_name == "show")? params[:id] : params[:project_id]  %>
+            <li><%= link_to "Files", project_project_files_path(project_id = project_id) %></li>
+            <li><%= link_to "Questions", project_questions_path(project_id = project_id) %></li>
+          <% end %>
+        </ul>
+        
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user.present? %>
+          
+         
+            <li><button class="btn btn-default dropdown-toggle" style="margin-top: 5%;" type="button" data-toggle="dropdown"><%= current_user.email %>
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "Sign out",destroy_user_session_path, method: :delete %></li>
+            </li>
+      
+          
+          
+>>>>>>> formatting
           <% else %>
             <li><%= link_to "Log In", new_user_session_path %></li>
             <li><%= link_to "Sign Up", new_user_registration_path %></li>
