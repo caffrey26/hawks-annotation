@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171031055821) do
+ActiveRecord::Schema.define(version: 20171031060844) do
 
   create_table "options", force: :cascade do |t|
     t.string   "option_text"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20171031055821) do
     t.integer  "project_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "p_file"
     t.string   "FileUpload"
     t.string   "attachment"
   end
