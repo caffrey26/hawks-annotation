@@ -1,0 +1,33 @@
+
+<div class="row">
+<div class="col-sm-6" id="abc">
+<ol>
+  <% @questions.each do|q| %>
+    <li><%= link_to q.title, new_project_answer_path(question_id: q, file_id: @first_file_id) %></li>
+  <% end %>  
+</ol>
+  
+   
+</div>
+<div class="col-sm-6">
+    <%= select_tag 'file_selected', options_from_collection_for_select(@files, :id, :file_name) %>
+
+</div>
+</div>
+
+<script>
+    // d3.select("#abc").text(function(){
+    //     console.log(d3.select("#file_selected").node().value);
+    //     // console.log(params[:file_selected]);
+    //     // return d3.select("#answer_file_id").value();
+    // });
+   console.log(<%= params[:file_selected] %>);
+
+    // d3.select("#file_selected").on("change", function(){
+    //     d3.select("#abc").text(function(){
+    //       var file_id = d3.select("#file_selected").node().value;
+    //       d3.select("#file_view").attr("src",)
+    //       return file_id;
+    //     });
+    // });
+</script>

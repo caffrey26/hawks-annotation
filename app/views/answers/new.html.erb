@@ -1,0 +1,24 @@
+<div class="row">
+
+<div class="col-sm-6" id="abc">
+  <%= @question.title %>
+  <%= @question.description %>
+  <%= simple_form_for @answer, url: new_project_answer_path, :method => :post do |f| %>
+      <% if @question.q_type == "T"%>
+          <%= f.text_area :answer_text%> </br>
+      <% else %>
+        <% Option.where(question_id: @question.id).each do |o| %>
+          <li><%= o.option_text %></li>
+        <% end %>
+      <% end %>
+  <% end %>
+</div>
+
+<div class="col-sm-6">
+    <%= select_tag 'file_selected', options_from_collection_for_select(@files, :id, :file_name) %> </br> </br>
+    
+    <iframe src=<%=@file.attachment_url %> width="900" height="650" style="border: none;" id="file_view"> </iframe>
+</div>
+</div>
+
+
