@@ -15,7 +15,7 @@
 </div>
 
 <div class="col-sm-6">
-    <%= select_tag 'file_selected', options_from_collection_for_select(@files, :id, :file_name) %> </br> </br>
+    <%= select_tag 'file_selected', options_from_collection_for_select(@files, :id, :file_name), :selected => @file.id %> </br> </br>
     
     <iframe src=<%=@file.attachment_url %> width="900" height="650" style="border: none;" id="file_view"> </iframe>
 </div>
