@@ -1,17 +1,23 @@
 <div class="row">
 
 <div class="col-sm-4" id="abc">
-  <h3>Questions View:</h3><br>
+  <h3>Questions View:</h3>
+  <button class="btn btn-info">Previous</button>
+  <button class="btn btn-info">All Questions</button>
+  <button class="btn btn-info">Next</button>
+  </br></br>
   <h4><%= @question.title %></h4>
   <p><%= @question.description %></p>
-  <%= simple_form_for @answer, url: new_project_answer_path, :method => :post do |f| %>
+  <%= simple_form_for @answer, url: project_answers_path, :method => :post do |f| %>
 
       <% if @question.q_type == "T"%>
           <%= f.text_area :answer_text%> </br>
       <% else %>
-            <%= f.collection_radio_buttons :answer_text, Option.where(question_id: @question.id), :id, :option_text, item_wrapper_class: :block_radio_button_collection %>
+          <%= f.collection_radio_buttons :answer_text, Option.where(question_id: @question.id), :id, :option_text, item_wrapper_class: :block_radio_button_collection %>
       <% end %>
-
+      </br>
+      <%= f.button :submit, class: "btn btn-primary"%>
+      <!--<button class="btn btn-primary">Submit Answer</button>-->
 
   <% end %>
 </div>
@@ -33,7 +39,7 @@
 
 
   <div>
-    </br><iframe src=<%=@file.attachment_url %>  height="600" id="file_view"> </iframe>
+    </br><iframe src=<%=@file.attachment_url %>  height="550" width="400" id="file_view"> </iframe>
   </div>
 
 </div>

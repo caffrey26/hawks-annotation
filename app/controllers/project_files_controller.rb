@@ -4,6 +4,7 @@ class ProjectFilesController < ApplicationController
     def new
         @project_file = ProjectFile.new(project_id: params[:project_id])
         @url = project_project_files_path
+
     end
     
     def show

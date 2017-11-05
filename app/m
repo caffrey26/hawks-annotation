@@ -1,1 +1,8 @@
  <%= select_tag 'file_selected', options_from_collection_for_select(@files, :id, :file_name), :selected => @file.id %> </br> </br>
+
+
+ </br><%= link_to "Submit Answer", project_answers_path(@answer), class: "btn btn-primary" %>
+
+
+
+
