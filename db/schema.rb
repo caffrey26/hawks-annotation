@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171105020344) do
+ActiveRecord::Schema.define(version: 20171105191706) do
 
   create_table "annotations", force: :cascade do |t|
     t.integer  "file_id"
@@ -36,8 +36,16 @@ ActiveRecord::Schema.define(version: 20171105020344) do
     t.datetime "updated_at",  null: false
   end
 
-# Could not dump table "project_files" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "project_files", force: :cascade do |t|
+    t.string   "file_name"
+    t.string   "description"
+    t.integer  "project_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "p_file"
+    t.string   "FileUpload"
+    t.string   "attachment"
+  end
 
   create_table "project_users", force: :cascade do |t|
     t.integer  "project_id"
@@ -61,6 +69,7 @@ ActiveRecord::Schema.define(version: 20171105020344) do
     t.datetime "updated_at",  null: false
     t.integer  "project_id"
     t.string   "q_type"
+    t.integer  "parent_id"
   end
 
   create_table "users", force: :cascade do |t|

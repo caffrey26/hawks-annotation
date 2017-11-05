@@ -1,0 +1,21 @@
+
+<h3>Child Questions</h3>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <!--<th></th>-->
+    <!--<th></th>-->
+    <!--<th></th>-->
+  </tr>
+ 
+<% @question.child_questions.each do |q| %>
+  <tr>
+    <td><%= link_to q.title, project_question_path(id: q.id) %></td>
+    <td><%= q.description %></td>
+  </tr>
+<% end %>
+</table>
+<br>
+ 

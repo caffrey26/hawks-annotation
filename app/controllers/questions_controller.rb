@@ -3,6 +3,7 @@ class QuestionsController < ApplicationController
     
     def new
         @question = Question.new(project_id: params[:project_id])
+        @parent_id = params[:parent_id]
         @url = project_questions_path
     end
     
@@ -15,10 +16,15 @@ class QuestionsController < ApplicationController
                                 new(
                                     :title => params[:question][:title], 
                                     :q_type => params[:type],
-                                    :description => params[:question][:description]
+                                    :description => params[:question][:description],
+                                    :parent_id => params[:question][:parent_id]
                                     ) 
       if(@question.save)
+        if params[:question][:parent_id].nil? then 
           redirect_to project_questions_path
+        else
+          redirect_to project_question_path(id: params[:question][:parent_id])
+        end
       else
         render html: "error saving"
       end

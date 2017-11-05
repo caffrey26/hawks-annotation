@@ -13,7 +13,9 @@
 <!--    </ul>-->
 <!--  </div>-->
 <!--<% end %>-->
-<%= simple_form_for @question, url: @url, :method => :post do |f| %>
+<%= simple_form_for @question, :url => @url, :method => :post do |f| %>
+  <!--<%= f.label :parent_id, label: @parent_id %>-->
+  <%= f.input :parent_id,:as => :hidden, :input_html => { :value => @parent_id }%>
   <%= f.input :title, label: "Question Title", :required => true %>
   <%= f.text_area :description%> </br>
   <!--<%= f.input :title, label: "Question Title" %>-->
@@ -27,4 +29,3 @@
   </br>
   <%= f.button :submit, class: "btn btn-primary"%>
 <% end %>
-
