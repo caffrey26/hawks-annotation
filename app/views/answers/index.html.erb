@@ -1,17 +1,17 @@
 
 <div class="row">
 <div class="col-sm-6" id="abc">
+<h2>Questions to be answered</h2>
+  <p>
+    Please click on a question to be taken to the answer view
+  </p>
 <ol>
   <% @questions.each do|q| %>
-    <li><%= link_to q.title, new_project_answer_path(question_id: q, file_id: @first_file_id) %></li>
+    <li><h3><%= link_to q.title, new_project_answer_path(question_id: q, file_id: @first_file_id) %></h3></li>
   <% end %>  
 </ol>
   
    
-</div>
-<div class="col-sm-6">
-    <%= select_tag 'file_selected', options_from_collection_for_select(@files, :id, :file_name) %>
-
 </div>
 </div>
 

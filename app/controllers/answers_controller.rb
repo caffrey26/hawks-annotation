@@ -9,10 +9,15 @@ class AnswersController < ApplicationController
     # end
     
     def new
-        @question = Question.find(params[:question_id]) 
-        @answer = Answer.new
-        @file =  ProjectFile.find(params[:file_id])
-        @files = ProjectFile.where(project_id: params[:project_id])
+      @question = Question.find(params[:question_id])
+      @answer = Answer.new
+      @file =  ProjectFile.find(params[:file_id])
+      @files = ProjectFile.where(project_id: params[:project_id])
+      # respond_to do |format|
+      #   format.js
+      #   format.html()
+      # end
+
     end
     
     def find_project

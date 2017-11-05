@@ -40,6 +40,8 @@ gem 'd3-rails'
 group :development, :test do
   gem 'rspec-rails'
   gem "rspec"
+  gem "tzinfo-data"
+  gem 'bcrypt', platforms: :ruby
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'sqlite3'

@@ -1,0 +1,1 @@
+ <%= select_tag 'file_selected', options_from_collection_for_select(@files, :id, :file_name), :selected => @file.id %> </br> </br>
