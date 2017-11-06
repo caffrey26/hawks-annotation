@@ -2,27 +2,27 @@
 
 <div class="col-sm-4" id="abc">
   <h3>Questions View:</h3>
-  <button class="btn btn-info">Previous</button>
-  <button class="btn btn-info">All Questions</button>
-  <button class="btn btn-info">Next</button>
+  <%= link_to "Previous", @prev_url, class: "btn btn-info" %>
+  <%= link_to "All Questions", project_answers_path(project_id = params[:project_id]), class: "btn btn-info" %>
+  <%= link_to "Next", @next_url, class: "btn btn-info" %>
   </br></br>
   <h4><%= @question.title %></h4>
   <p><%= @question.description %></p>
-  <%= simple_form_for @answer, url: project_answers_path, :method => :post do |f| %>
+  <%= simple_form_for @answer, url: project_answers_path(question_id: @question.id, user_id: current_user.id, file_id: params[:file_id]), :method => :post do |f| %>
 
       <% if @question.q_type == "T"%>
-          <%= f.text_area :answer_text%> </br>
+          <%= f.text_area :answer_text, id:"text_answer" %> </br>
       <% else %>
-          <%= f.collection_radio_buttons :answer_text, Option.where(question_id: @question.id), :id, :option_text, item_wrapper_class: :block_radio_button_collection %>
+          <%= f.collection_radio_buttons :answer_text, Option.where(question_id: @question.id), :id, :option_text, item_wrapper_class: :block_radio_button_collection%>
       <% end %>
       </br>
-      <%= f.button :submit, class: "btn btn-primary"%>
+      <%= f.button :submit, "Save Answer", class: "btn btn-primary"%>
       <!--<button class="btn btn-primary">Submit Answer</button>-->
 
   <% end %>
 </div>
 
-<div class="col-sm-5">
+<div class="col-sm-8">
 
   <div style="position: relative; z-index: 5000;">
     <h3>File View:</h3>
@@ -32,22 +32,52 @@
     <button class="btn btn-primary">Add file to reference</button>
     <ul class="dropdown-menu" aria-labelledby="filemenu-selector">
       <% @files.each do |f| %>
-          <li><%= link_to f.file_name, new_project_answer_path(question_id: @question.id, file_id: f.id), id:"file_id"+f.id.to_s %></li>
+          <% if @question.q_type == "T" %>
+            <li><%= link_to f.file_name, "javascript:;", data: {hrf: new_project_answer_path(question_id: @question.id, file_id: f.id).to_s}, id:"file_id"+f.id.to_s %></li>
+          <% else %>
+              <li><%= link_to f.file_name, new_project_answer_path(question_id: @question.id, file_id: f.id), id:"file_id"+f.id.to_s %></li>
+          <% end %>
       <% end %>
     </ul>
   </div>
 
 
   <div>
-    </br><iframe src=<%=@file.attachment_url %>  height="550" width="400" id="file_view"> </iframe>
+    </br>
+
+    <iframe src= "<%= (@file.attachment_url =~ /^.+\.([pP][dD][fF])$/).nil? ? @file.attachment_url : "/annotation_viewer/viewer/web/viewer.html?file=" + @file.attachment_url%>" width="700" height="500" id="pdf_viewer"></iframe>
   </div>
 
 </div>
 
-  <div class="col-sm-3" style="background-color: #ddffdd">
-    <h3>Annotations:</h3>
-  </div>
+  <!--<div class="col-sm-3" style="background-color: #ddffdd">-->
+    <!--<h3>Annotations:</h3>-->
+  <!--</div>-->
 
 </div>
+
+
+<script>
+
+  if($('#text_answer').length > 0){
+      var ans_text = "<%= @answer.answer_text.to_s %>";
+      $("#text_answer").change(function(){
+          ans_text = this.value;
+      });
+
+      $("[id^=file_id]").click(function(){
+
+          if(ans_text == "<%= @answer.answer_text.to_s %>" ){
+              window.location.href = $(this).data("hrf");
+          } else {
+              if(confirm("You have unsaved answers in this page. Are you sure you want to load a different file before saving?")){
+                  window.location.href = $(this).data("hrf");
+              }
+          }
+      });
+  }
+
+
+</script>
 
 
