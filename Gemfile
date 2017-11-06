@@ -27,7 +27,7 @@ gem 'devise', '~> 4.3'
 gem 'carrierwave'
 gem 'bootswatch-rails'
 gem 'd3-rails'
-gem 'annotator-rails'
+# gem 'annotator-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
