@@ -44,8 +44,12 @@
 
   <div>
     </br>
+    <% if (@file.attachment_url =~ /^.+\.([pP][dD][fF])$/).nil? %>
+        <iframe src = <%= @file.attachment_url  %> width="700" height="500" id="content_viewer" enable-annotation></iframe>
+    <% else %>
+        <iframe src= "<%=  "/annotation_viewer/viewer/web/viewer.html?file=" + @file.attachment_url%>" width="700" height="500" id="pdf_viewer"></iframe>
+    <% end %>
 
-    <iframe src= "<%= (@file.attachment_url =~ /^.+\.([pP][dD][fF])$/).nil? ? @file.attachment_url : "/annotation_viewer/viewer/web/viewer.html?file=" + @file.attachment_url%>" width="700" height="500" id="pdf_viewer"></iframe>
   </div>
 
 </div>
@@ -55,7 +59,9 @@
   <!--</div>-->
 
 </div>
-
+<% if (@file.attachment_url =~ /^.+\.([pP][dD][fF])$/).nil? %>
+  <script  src="https://hypothes.is/embed.js" async></script>
+<% end %>
 
 <script>
 
@@ -76,6 +82,8 @@
           }
       });
   }
+
+
 
 
 </script>

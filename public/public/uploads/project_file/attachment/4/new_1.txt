@@ -1,0 +1,15 @@
+.pluck(:file_name, :id)
+<!--<iframe src=<%= @project_file.attachment.url %> width="900" height="650" style="border: none;"> </iframe>-->
+
+
+.pluck(:file_name, :id, :attachment)
+
+ <%= collection_select(:answer, :file_id, @files, :id, :file_name) %>
+ 
+ <% ProjectFile.find(file_id).attachment.url %>
+ 
+ 
+ <iframe src = <% ProjectFile.find(params[:file_selected]).attachment_url %> width="900" height="650" style="border: none;" id="file_view"> </iframe>
+ 
+ 
+   <iframe src = <% @file.attachment_url %> width="900" height="650" style="border: none;" id="file_view"> </iframe>

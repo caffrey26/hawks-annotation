@@ -6,3 +6,10 @@
 
 
 
+  var scriptTag = '<script  src="https://hypothes.is/embed.js" async><';
+  scriptTag +=  "/script>";
+  console.log(scriptTag);
+  $("#content_viewer").append(scriptTag);
+
+
+
