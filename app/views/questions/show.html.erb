@@ -1,14 +1,28 @@
+<!DOCTYPE html>
+<html>   
+   
 <%= flash[:success] %>
-<h2><%= @question.title %></h2>
-<p><%= @question.description %></p>
-<p><%= @question.created_at %></p>
-</br>
-<%= if @question.q_type == "O" and @question.options.present? then render "options" end%>
-<%= if @question.child_questions.present? then render "child_questions" end%>
-<%= if @question.q_type == "O" then link_to "Add Options", new_project_question_option_path(question_id: params[:id]), class: "btn btn-primary" end %>
-<!--<%= link_to "Add Options",project_questions_path(params[:project_id]) , class: "btn btn-default" %> &nbsp;-->
-<%= link_to "Add Child Question", new_project_question_path(project_id: params[:project_id], parent_id: params[:id]), class: "btn btn-primary" %> &nbsp;
-<%= link_to "Back", project_questions_path(params[:project_id]), class: "btn btn-default" %> &nbsp;
-<%= link_to "Edit", edit_project_question_path(id: @question.id), class: "btn btn-info" %> &nbsp;
-<%= link_to "Delete", project_question_path(id: @question.id), method: :delete, data: {confirm: "Are you sure you want to delete this question?"}, class: "btn btn-danger" %>
-</br>
+    <div class="container">
+        <div class="row">
+            <div class="pull-right">
+                <%= if @question.q_type == "O" then link_to "Add Options", new_project_question_option_path(question_id: params[:id]), class: "btn btn-primary" end %>&nbsp;&nbsp;
+                <!--<%= link_to "Add Options",project_questions_path(params[:project_id]) , class: "btn btn-primary" %> &nbsp;-->
+                <%= link_to "Add Child Question", new_project_question_path(project_id: params[:project_id], parent_id: params[:id]), class: "btn btn-primary" %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <h3><%= @question.title %></h3>
+            <p><%= @question.created_at %></p>
+            <p><%= @question.description %></p>
+        </div>
+    </div>
+    </br>
+
+    <%= if @question.q_type == "O" and @question.options.present? then render "options" end%>
+    <%= if @question.child_questions.present? then render "child_questions" end%>
+        </br></br></br>
+    
+     <%= link_to "Back", project_questions_path(params[:project_id]), class: "btn btn-default" %> &nbsp;
+    <%= link_to "Edit", edit_project_question_path(id: @question.id), class: "btn btn-info" %> &nbsp;
+    <%= link_to "Delete", project_question_path(id: @question.id), method: :delete, data: {confirm: "Are you sure you want to delete this question?"}, class: "btn btn-danger" %>
+    </br>
+    
+</html>    

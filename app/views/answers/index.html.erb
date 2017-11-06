@@ -1,19 +1,32 @@
+<!DOCTYPE html>
+<html> 
 
-<div class="row">
-<div class="col-sm-6" id="abc">
-<h2>Questions to be answered</h2>
-  <p>
-    Please click on a question to be taken to the answer view
-  </p>
-<ol>
-  <% @questions.each do|q| %>
-    <li><h3><%= link_to q.title, new_project_answer_path(question_id: q, file_id: @first_file_id) %></h3></li>
-  <% end %>  
-</ol>
-  
-   
-</div>
-</div>
+<head>
+  <div class="container">
+  <div class="row">
+    <div class="col-md-6" id="abc">
+      <h3>Questions to be answered</h3>
+      <p>
+        Please click on a question to be taken to the answer view
+      </p>
+    </div>
+  </div>
+  </div>
+
+<body>
+  <div class="container">
+  <div class="row">
+  <ol>
+    <% @questions.each do|q| %>
+      <li><h4><%= link_to q.title, new_project_answer_path(question_id: q, file_id: @first_file_id) %></h4></li>
+    <% end %>  
+  </ol>
+  </div>
+  </div>
+</body>
+
+
+</html>
 
 <script>
     // d3.select("#abc").text(function(){

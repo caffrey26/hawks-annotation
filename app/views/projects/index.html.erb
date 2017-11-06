@@ -1,26 +1,54 @@
-<% if current_user.present? %>
-  <h3> Your Projects </h3> 
-    <% @adminprojects.each do |p| %>
-      <h3><%= link_to p.title, project_path(p) %></h3>
-      <p><%= p.description%></p>
-    <% end %>
-    </br>
-  <% if @otherprojects.length > 0 %>  
-    <h3> Projects you contribute to </h3>
-      <% @otherprojects.each do |p| %>
-        <h3><%= link_to p.title, project_path(p) %></h3>
-        <p><%= p.description%></p>
-      <% end %>
-      </br>
-  <% end %>
-  </br>
-  <%= link_to "+ Create New Project", new_project_path, class: "btn btn-primary" %>
-    
-<% else %>
+<!DOCTYPE html>
+<html>
 
-  <h2>Welcome to Hawks Annotation! Sign in or sign up to continue</h2>
+<head>
+  <link href="projects.scss" rel="stylesheet">
+  <% if current_user.present? %>
+  <div class="pull-right">
+  <%= link_to "+ Create a new Project", new_project_path, class: "btn btn-primary" %>
+  </div>
+  </head>
+  
+  <body>
+  
+  <div id="main-container" class="container">
+    <div class="row">
+      <div class="col-md-6">
+        </br>
+        <h3> Your Projects </h3> 
+        <% @adminprojects.each do |p| %>
+          <h3><%= link_to p.title, project_path(p) %></h3>
+          <p class="fontstyle"><%= p.description%></p>
+        <% end %>
+       </div>
+      
+    
+        <% if @otherprojects.length > 0 %>  
+      <div class="col-md-6">
+        <h3> Projects you contribute to </h3>
+        <% @otherprojects.each do |p| %>
+          <h3><%= link_to p.title, project_path(p) %></h3>
+          <p class="fontstyle"><%= p.description%></p>
+        <% end %>
+      </div>
+      </br>
+      </div>
+  <% end %>
+  </div>
+  </br>
+  
+  <% else %>
+
+  <h2>WELCOME TO HAWKS ANNOTATION..!!!</h2>
+  <h3 class="pull-right">Sign in or Sign ip to continue...</h3>
   <br>
   <%= image_tag("welcome_annotation.jpg", class:"img-responsive", size: "50%xauto") %>
   <!--<h2><%= @welcome %></h2>-->
   
 <% end %>
+
+  </body>
+  
+
+
+</html>

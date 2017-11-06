@@ -22,11 +22,14 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'simple_form', '~> 3.5'
-gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+#gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'devise', '~> 4.3'
 gem 'carrierwave'
 gem 'bootswatch-rails'
 gem 'd3-rails'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+
 # gem 'annotator-rails'
 
 # Use ActiveModel has_secure_password

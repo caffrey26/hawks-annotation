@@ -1,10 +1,32 @@
-<h2><%= link_to Project.find(params[:project_id]).title, project_path(id: params[:project_id]) %> questions</h2>
+<!DOCTYPE html>
+<html>  
 
-<% @questions.each do |p| %>
-  <h3><%= link_to p.title, project_question_path(id: p.id) %></h3>
-  <p><%= p.description%></p>
-<% end %>
+<head>
+  <div class="container">
+  <div class="row">
+    <div class="col-md-5">
+  <h3> Questions for the project <%= link_to Project.find(params[:project_id]).title, project_path(id: params[:project_id]) %> </h3>
+  </div>
+  <div class="col-md-5">
+    <div class="pull-right">
+  <%=link_to "+ Add a new question", new_project_question_path(project_id: params[:project_id]), class: "btn btn-primary" %>
+  </div>
+  </div>
+  </div>
+  </div>
+</head>
 
-</br>
+<body>
+  <div class="container">
+    <div class="row">
+      <ol>
+        <% @questions.each do |p| %>
+        <li><h4><%= link_to p.title, project_question_path(id: p.id) %></h4></li>
+        <p><%= p.description%></p>
+        <% end %>
+      </ol>
+    </div>
+  </div>
+</body>
 
-<%=link_to "+ Add a new question", new_project_question_path(project_id: params[:project_id]), class: "btn btn-primary" %>
+</html>

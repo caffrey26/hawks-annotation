@@ -1,14 +1,15 @@
-<div class="row">
-
-<div class="col-sm-4" id="abc">
-  <h3>Questions View:</h3>
-  <%= link_to "Previous", @prev_url, class: "btn btn-info" %>
-  <%= link_to "All Questions", project_answers_path(project_id = params[:project_id]), class: "btn btn-info" %>
-  <%= link_to "Next", @next_url, class: "btn btn-info" %>
-  </br></br>
-  <h4><%= @question.title %></h4>
-  <p><%= @question.description %></p>
-  <%= simple_form_for @answer, url: project_answers_path(question_id: @question.id, user_id: current_user.id, file_id: params[:file_id]), :method => :post do |f| %>
+<!DOCTYPE html>
+<html> 
+<body>
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-4" id="abc">
+      <h3>Question View:</h3>
+  
+  
+      <h4><%= @question.title %></h4>
+      <p><%= @question.description %></p>
+      <%= simple_form_for @answer, url: project_answers_path(question_id: @question.id, user_id: current_user.id, file_id: params[:file_id]), :method => :post do |f| %>
 
       <% if @question.q_type == "T"%>
           <%= f.text_area :answer_text, id:"text_answer" %> </br>
@@ -20,6 +21,11 @@
       <!--<button class="btn btn-primary">Submit Answer</button>-->
 
   <% end %>
+  </br></br>
+  
+  <%= link_to "Previous", @prev_url, class: "btn btn-info" %>
+  <%= link_to "All Questions", project_answers_path(project_id = params[:project_id]), class: "btn btn-info" %>
+  <%= link_to "Next", @next_url, class: "btn btn-info" %>
 </div>
 
 <div class="col-sm-8">
@@ -45,7 +51,7 @@
   <div>
     </br>
     <% if (@file.attachment_url =~ /^.+\.([pP][dD][fF])$/).nil? %>
-        <iframe src = <%= @file.attachment_url  %> width="700" height="500" id="content_viewer" enable-annotation></iframe>
+        <iframe src = <%= @file.attachment_url  %> ; width="800" height="350" id="content_viewer" enable-annotation></iframe>
     <% else %>
         <iframe src= "<%=  "/annotation_viewer/viewer/web/viewer.html?file=" + @file.attachment_url%>" width="700" height="500" id="pdf_viewer"></iframe>
     <% end %>
@@ -57,11 +63,13 @@
   <!--<div class="col-sm-3" style="background-color: #ddffdd">-->
     <!--<h3>Annotations:</h3>-->
   <!--</div>-->
-
+</div>
 </div>
 <% if (@file.attachment_url =~ /^.+\.([pP][dD][fF])$/).nil? %>
   <script  src="https://hypothes.is/embed.js" async></script>
 <% end %>
+</body>
+</html>
 
 <script>
 
@@ -82,10 +90,7 @@
           }
       });
   }
-
-
-
-
+  
 </script>
 
 
