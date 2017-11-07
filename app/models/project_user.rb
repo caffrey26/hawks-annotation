@@ -3,3 +3,6 @@ class ProjectUser < ActiveRecord::Base
     belongs_to :user, class_name: "User"
     validates_uniqueness_of :project_id, scope: [:user_id]
 end
+
+
+

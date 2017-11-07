@@ -7,3 +7,5 @@ class Question < ActiveRecord::Base
             :foreign_key => "parent_id"
       belongs_to :parent_question, :class_name => "Question"
 end
+
+
