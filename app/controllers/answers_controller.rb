@@ -2,6 +2,18 @@ class AnswersController < ApplicationController
     before_action :find_project, only:[:index]
      
     def index
+      # download_answers = Answer.where(project_id: params[:project_id].to_s).joins(:question).includes(:question)
+      download_answers = Answer
+                             .joins("LEFT JOIN `questions` ON answers.question_id = questions.id")
+                             .where("answers.project_id = " + params[:project_id].to_s)
+                             .select("answers.*, questions.*")
+                             .group("answers.question_id, answers.user_id")
+                             .having("answers.updated_at = MAX(answers.updated_at)")
+
+      respond_to do |format|
+        format.html
+        format.csv { send_data download_answers.to_csv}
+      end
     end
     
     # def show
@@ -39,6 +51,7 @@ class AnswersController < ApplicationController
       params_valid = params.require(:answer).permit(:answer_text)
       @answer = Question.find(params[:question_id]).answers.build(params_valid)
       @answer.user_id = params[:user_id]
+      @answer.project_id = params[:project_id]
       if @answer.save
         redirect_to new_project_answer_path(question_id: params[:question_id], file_id: params[:file_id])
       end

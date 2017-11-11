@@ -61,7 +61,6 @@ end
 gem 'simplecov', :require => false, :group => :test
 
 group :test do
-  gem 'rspec'
   gem 'cucumber-rails', :require => false
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
