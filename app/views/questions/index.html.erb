@@ -2,16 +2,26 @@
 <html>  
 
 <head>
+  <div class ="row">
+    <div class="col-md-6">
+    <%= form_tag(project_questions_path, method: :get) do %>
+      <%= text_field_tag :term, params[:term] %>
+      <%= submit_tag 'Search' %>
+    <% end %>
+    </div>
+    <div class="col-md-5">
+    <div class="pull-right">
+  <%=link_to "+ Add a new question", new_project_question_path(project_id: params[:project_id]), class: "btn btn-primary" %>
+    </div>
+    </div>
+  </div>
+  
   <div class="container">
   <div class="row">
     <div class="col-md-5">
   <h3> Questions for the project <%= link_to Project.find(params[:project_id]).title, project_path(id: params[:project_id]) %> </h3>
   </div>
-  <div class="col-md-5">
-    <div class="pull-right">
-  <%=link_to "+ Add a new question", new_project_question_path(project_id: params[:project_id]), class: "btn btn-primary" %>
-  </div>
-  </div>
+  
   </div>
   </div>
 </head>

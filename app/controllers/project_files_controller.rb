@@ -20,7 +20,11 @@ class ProjectFilesController < ApplicationController
     end
     
     def index
-      @project_files = ProjectFile.where(project_id: params[:project_id]).order("created_at DESC")
+      @project_files = if params[:term]
+      ProjectFile.where(project_id: params[:project_id]).where('file_name LIKE ?', "%#{params[:term]}%").order("created_at DESC")
+    else
+      ProjectFile.where(project_id: params[:project_id]).order("created_at DESC")
+    end
     end
     
     def edit
@@ -49,7 +53,7 @@ class ProjectFilesController < ApplicationController
     private
   
       def params_valid
-         params.require(:project_file).permit(:file_name, :description, :attachment)
+         params.require(:project_file).permit(:file_name, :description, :attachment, :term)
       end
     
 end

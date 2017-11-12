@@ -13,11 +13,22 @@ class ProjectsController < ApplicationController
   end
   def index
       if(current_user.present?)
-          @adminprojects = Project.where(admin_id: current_user.id).order("created_at DESC")
-          @otherprojects = current_user.projects.where.not(admin_id: current_user.id).order("created_at DESC")
+        
+        @adminprojects = if params[:term]
+          Project.where(admin_id: current_user.id).where('title LIKE ?', "%#{params[:term]}%").order("created_at DESC")
+        else
+          Project.where(admin_id: current_user.id).order("created_at DESC")
+        end
+        
+        @otherprojects = if params[:term]
+          current_user.projects.where.not(admin_id: current_user.id).where('title LIKE ?', "%#{params[:term]}%").order("created_at DESC")
+        else
+          current_user.projects.where.not(admin_id: current_user.id).order("created_at DESC")
+        end
         #   @welcome = "Welcome to Hawks Annotation! Sign in or sign up to continue"
       end
   end
+  
   def add
     # @student = Student.find(params[:student_id])
     
@@ -81,6 +92,6 @@ class ProjectsController < ApplicationController
   private
   
       def params_valid
-         params.require(:project).permit(:title, :description)
+         params.require(:project).permit(:title, :description, :term)
       end
 end

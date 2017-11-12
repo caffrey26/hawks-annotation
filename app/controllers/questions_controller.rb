@@ -31,7 +31,11 @@ class QuestionsController < ApplicationController
     end
     
     def index
-      @questions = Question.where(project_id: params[:project_id]).order("created_at DESC")
+      @questions = if params[:term]
+        Question.where(project_id: params[:project_id]).where('title LIKE ?', "%#{params[:term]}%").order("created_at DESC")
+      else
+        Question.where(project_id: params[:project_id]).order("created_at DESC")
+      end
     end
     
     def edit
@@ -60,6 +64,6 @@ class QuestionsController < ApplicationController
     private
   
       def params_valid
-         params.require(:question).permit(:title, :description, :type)
+         params.require(:question).permit(:title, :description, :type, :term)
       end
 end
