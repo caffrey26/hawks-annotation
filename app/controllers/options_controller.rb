@@ -30,6 +30,7 @@ class OptionsController < ApplicationController
           flash[:success] = "Option updated!"
           redirect_to project_question_path(id: params[:question_id])
       else
+          @url = project_question_option_path
           render 'edit'
       end
     end

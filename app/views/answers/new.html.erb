@@ -41,7 +41,7 @@
           <% if @question.q_type == "T" %>
             <li><%= link_to f.file_name, "javascript:;", data: {hrf: new_project_answer_path(question_id: @question.id, file_id: f.id).to_s}, id:"file_id"+f.id.to_s %></li>
           <% else %>
-              <li><%= link_to f.file_name, new_project_answer_path(question_id: @question.id, file_id: f.id), id:"file_id"+f.id.to_s %></li>
+              <li><%= link_to f.file_name, new_project_answer_path(question_id: @question.id, file_id: f.id), id:"file_id"+ f.id.to_s %></li>
           <% end %>
       <% end %>
     </ul>
