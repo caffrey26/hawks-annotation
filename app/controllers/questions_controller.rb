@@ -13,12 +13,7 @@ class QuestionsController < ApplicationController
     def create
       @question = Project.find(params[:project_id]).
                               questions.
-                                new(
-                                    :title => params[:question][:title], 
-                                    :q_type => params[:type],
-                                    :description => params[:question][:description],
-                                    :parent_id => params[:question][:parent_id]
-                                    ) 
+                                new(params_valid) 
       if(@question.save)
         if params[:question][:parent_id].nil? then 
           redirect_to project_questions_path
@@ -48,7 +43,7 @@ class QuestionsController < ApplicationController
       if @question.update(params_valid)
           redirect_to project_question_path(id: @question.id)
       else
-          @url = project_questions_path
+          @url = project_question_path
           render 'edit'
       end
     end
@@ -67,6 +62,6 @@ class QuestionsController < ApplicationController
     private
   
       def params_valid
-         params.require(:question).permit(:title, :description, :type, :term)
+         params.require(:question).permit(:title, :description, :q_type, :term)
       end
 end

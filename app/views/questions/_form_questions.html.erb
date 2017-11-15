@@ -15,12 +15,17 @@
   <%= f.text_area :description%> </br>
   <!--<%= f.input :title, label: "Question Title" %>-->
   <!--<%= select_tag "type", "<option>Enter Text</option><option>Select from options</option>".html_safe %>-->
-  <%= radio_button_tag(:type, "T") %>
-  <%= label_tag(:type_text, "Accepts Text as answer") %>
-  <%= radio_button_tag(:type, "O") %>
-  <%= label_tag(:type_option, "Accepts Options as answer") %>
+  <!--<%= radio_button_tag( "question[q_type]", "T") %>-->
+  <!--<%= label_tag(:type_text, "Accepts Text as answer") %>-->
+  <!--<%= radio_button_tag( "question[q_type]", "O") %>-->
+  <!--<%= label_tag(:type_option, "Accepts Options as answer") %>-->
   <!--<%= f.input :description, label: "Description" %>-->
   <!--<%= f.text_area :description%> </br>-->
+  
+  <%= f.collection_radio_buttons( :q_type, [['T', 'Text as Answer'] ,['O', 'Options as Answer']], :first, :last ) do |b| %>
+  <%=  b.label { b.radio_button + "   " + b.text } %> <br> </br>
+  <% end %> 
+
   </br>
-  <%= f.button :submit, class: "btn btn-primary"%>
+  <%= f.button :submit, class: "btn btn-primary"%> 
 <% end %>
