@@ -5,10 +5,9 @@
   <div class="container">
   <div class="row">
     <div class="col-md-6" id="abc">
-      <%= link_to "Download Answers as csv", project_answers_path+".csv"  %>
       <h3>Questions to be answered</h3>
       <p>
-        Please click on a question to be taken to the answer view
+         Click on a question to answer
       </p>
     </div>
   </div>
@@ -25,8 +24,10 @@
   </div>
   </div>
 </body>
-
-
+</br></br>
+<div class="container">
+   <h4><%= link_to "Download Answers as csv", project_answers_path+".csv"  %></h4>
+</div>
 </html>
 
 <script>
