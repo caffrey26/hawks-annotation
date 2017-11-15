@@ -1,7 +1,7 @@
-<h3>Edit Project Question</h3>
-
-<%= simple_form_for @question, url: @url, :method => :patch do |f| %>
-  <%= f.input :title, label: "Question Title" %>
-  <%= f.text_area :description%> </br>
-  <%= f.button :submit, class: "btn btn-primary"%>
-<% end %>
+<!DOCTYPE html>
+<html>
+    <head>
+    <h4 class="heading">Edit Project Question</h4>
+    </head>
+    <%= render 'form_questions' %>
+</html>

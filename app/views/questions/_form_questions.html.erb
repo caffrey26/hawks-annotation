@@ -1,19 +1,14 @@
-<!--Questions-->
-<!--<% if @question.errors.any? %>-->
-<!--  <div id="error_explanation">-->
-<!--    <h2>-->
-<!--      <%= pluralize(@question.errors.count, "error") %>-->
-<!--      prohibited this post from being saved:-->
-<!--    </h2>-->
-
-<!--    <ul>-->
-<!--    <% @question.errors.full_messages.each do |msg| %>-->
-<!--      <li><%= msg %></li>-->
-<!--    <% end %>-->
-<!--    </ul>-->
-<!--  </div>-->
-<!--<% end %>-->
-<%= simple_form_for @question, :url => @url, :method => :post do |f| %>
+<% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this project question from being saved:</h2>
+      <ul>
+      <% @question.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
+<%= simple_form_for @question, :url => @url do |f| %>
   <!--<%= f.label :parent_id, label: @parent_id %>-->
   <%= f.input :parent_id,:as => :hidden, :input_html => { :value => @parent_id }%>
   <%= f.input :title, label: "Question Title", :required => true %>

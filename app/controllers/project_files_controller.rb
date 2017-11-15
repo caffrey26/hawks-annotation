@@ -15,7 +15,8 @@ class ProjectFilesController < ApplicationController
       if(@project_file.save)
           redirect_to project_project_files_path
       else
-        render html:"error in saving"
+        @url = project_project_files_path
+        render :new
       end
     end
     
@@ -35,6 +36,7 @@ class ProjectFilesController < ApplicationController
       if @project_file.update(params_valid)
           redirect_to project_project_file_path(id: @project_file.id)
       else
+          @url = project_project_file_path
           render 'edit'
       end
     end

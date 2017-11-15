@@ -14,7 +14,8 @@ class OptionsController < ApplicationController
           flash[:success] = "Option added!"
           redirect_to project_question_path(id: params[:question_id])
       else
-        render html: "error saving"
+        @url = project_question_options_path
+        render :new
       end
     end
     

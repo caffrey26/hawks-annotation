@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
   #has_many :user_projects
   #has_many :users, through: :user_projects
-  validates :title, presence: true
+  validates :title, presence: true,  uniqueness: { scope: :admin_id }
   #Prashanth
   has_many :project_files
   has_many :questions

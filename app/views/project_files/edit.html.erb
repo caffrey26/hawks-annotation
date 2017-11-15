@@ -1,8 +1,8 @@
-<h3>Edit Project File</h3>
+<!DOCTYPE html>
+<html>
+    <head>
+    <h4 class="heading">Edit Project File</h4>
+    </head>
+    <%= render 'form_project_files' %>
 
-<%= simple_form_for @project_file, url: @url, :method => :patch do |f| %>
-  <%= f.input :file_name, label: "Name of the File" %>
-  <%= f.text_area :description%> </br>
-  <%= f.input :attachment, as: :file %> </br>
-  <%= f.button :submit, class: "btn btn-primary"%>
-<% end %>
+</html>

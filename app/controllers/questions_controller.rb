@@ -26,7 +26,9 @@ class QuestionsController < ApplicationController
           redirect_to project_question_path(id: params[:question][:parent_id])
         end
       else
-        render html: "error saving"
+        @parent_id =  params[:question][:parent_id]
+        @url = project_questions_path
+        render :new
       end
     end
     
@@ -46,6 +48,7 @@ class QuestionsController < ApplicationController
       if @question.update(params_valid)
           redirect_to project_question_path(id: @question.id)
       else
+          @url = project_questions_path
           render 'edit'
       end
     end

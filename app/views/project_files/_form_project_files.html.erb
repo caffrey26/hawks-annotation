@@ -1,5 +1,16 @@
-<%= simple_form_for @project_file, url: @url, :method => :post do |f| %>
+<% if @project_file.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project_file.errors.count, "error") %> prohibited this project file from being saved:</h2>
+      <ul>
+      <% @project_file.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
+<%= simple_form_for @project_file, :url => @url do |f| %>
   <%= f.input :file_name, label: "Name of the File" %>
   <%= f.text_area :description%> </br>
+  <%= f.input :attachment, as: :file %> </br>
   <%= f.button :submit, class: "btn btn-primary"%>
 <% end %>

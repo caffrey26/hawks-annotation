@@ -9,17 +9,17 @@
             <div class="col-md-7">
             <p><%= @project_file.description %></p>
             </div>
-            
         </div>
     </div>
     
     </br></br>
-    
-    <div class="container">
-        <iframe src=<%= @project_file.attachment.url %> ; width="900" height="350" style="border: none;"> </iframe>
-        <!--<%= link_to "View File", @project_file.attachment.url, class: "btn btn-primary",  target: :_blank %> </br>-->
-    </div>
-
+    <%  if @project_file.attachment.file.nil? then %>
+        <%= image_tag("no_file.jpg", class:"img-responsive", width: "900", height: "350", style: "border: none;" ) %>
+    <% else %>
+        <div class="container">
+            <iframe src=<%=  if @project_file.attachment.file.nil? then "no_file.png" else @project_file.attachment.url end %> width="900" height="350" style="border: none;"> </iframe>
+        </div>
+    <% end %>
     </br></br>
     
     <div class="container">

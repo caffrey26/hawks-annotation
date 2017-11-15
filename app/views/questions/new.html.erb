@@ -1,5 +1,8 @@
-<!--Questions-->
-<h3>Add a Question to the project "<%= Project.find(@question.project_id).title %>"</h3>
+<!DOCTYPE html>
+<html>
+    <head>
+    <h4 class="heading">Add Question under project <%= Project.find(@question.project_id).title %></h4>
+    </head>
+    <%= render 'form_questions' %>
 
-<%= render 'form_questions' %>
-
+</html>
