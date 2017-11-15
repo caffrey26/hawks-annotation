@@ -14,7 +14,7 @@
     
     </br></br>
     <%  if @project_file.attachment.file.nil? then %>
-        <%= image_tag("no_file.jpg", class:"img-responsive", width: "900", height: "350", style: "border: none;" ) %>
+        <%= image_tag "No_File_Uploaded.png" %>
     <% else %>
         <div class="container">
             <iframe src=<%=  if @project_file.attachment.file.nil? then "no_file.png" else @project_file.attachment.url end %> width="900" height="350" style="border: none;"> </iframe>
