@@ -5,11 +5,17 @@
   <div class="row">
     <div class="col-sm-4" id="abc">
       <h3>Question View:</h3>
+
+      <%= link_to "Previous", @prev_url, class: "btn btn-info" %>
+      <%= link_to "All Questions", project_answers_path(project_id = params[:project_id]), class: "btn btn-info" %>
+      <%= link_to "Next", @next_url, class: "btn btn-info" %>
+
+      </br></br>
   
   
       <h4><%= @question.title %></h4>
       <p><%= @question.description %></p>
-      <%= simple_form_for @answer, url: project_answers_path(question_id: @question.id, user_id: current_user.id, file_id: params[:file_id]), :method => :post do |f| %>
+      <%= simple_form_for @answer, url: project_answers_path(question_id: @question.id, user_id: current_user.id, file_id: params[:file_id], id: @answer.id), :method => :post do |f| %>
 
       <% if @question.q_type == "T"%>
           <%= f.text_area :answer_text, id:"text_answer" %> </br>
@@ -21,11 +27,22 @@
       <!--<button class="btn btn-primary">Submit Answer</button>-->
 
   <% end %>
+      </br></br>
+      <% if @references.present? %>
+          <h4>References</h4>
+          <ol>
+            <% @references.each do |f| %>
+                <% if @question.q_type == "T" %>
+                    <li><%= link_to f.file_name, "javascript:;", data: {hrf: new_project_answer_path(question_id: @question.id, file_id: f.id).to_s}, id:"file_id"+f.id.to_s %></li>
+                <% else %>
+                    <li><%= link_to f.file_name, new_project_answer_path(question_id: @question.id, file_id: f.id), id:"file_id"+ f.id.to_s %></li>
+                <% end %>
+            <% end %>
+          </ol>
+      <% end %>
   </br></br>
   
-  <%= link_to "Previous", @prev_url, class: "btn btn-info" %>
-  <%= link_to "All Questions", project_answers_path(project_id = params[:project_id]), class: "btn btn-info" %>
-  <%= link_to "Next", @next_url, class: "btn btn-info" %>
+
 </div>
 
 <div class="col-sm-8">
@@ -35,7 +52,8 @@
     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id="filemenu-selector">
       <%= @file.file_name+" " %><span class="glyphicon glyphicon-chevron-down"></span>
       <span class="sr-only"></span></button>
-    <button class="btn btn-primary">Add file to reference</button>
+    <%= link_to "Add file to reference", add_ref_project_answers_path(id: @answer.id, file_id: params[:file_id], question_id: params[:question_id]), class:"btn btn-primary" %>
+    <!--<button class="btn btn-primary">Add file to reference</button>-->
     <ul class="dropdown-menu" aria-labelledby="filemenu-selector">
       <% @files.each do |f| %>
           <% if @question.q_type == "T" %>
