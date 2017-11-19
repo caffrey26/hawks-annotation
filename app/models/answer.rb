@@ -1,6 +1,6 @@
 class Answer < ActiveRecord::Base
+    # serialize :file_id, Array
     belongs_to :question
-    has_many :files
 
     def self.to_csv
         attributes = %w[id question_id q_type answer_text project_id user_id title ]

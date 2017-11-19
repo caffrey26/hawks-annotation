@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :projects do
-    resources :answers
+    resources :answers do
+      collection do
+        get :add_ref
+      end
+    end
     resources :project_files
     resources :questions do
       resources :options
