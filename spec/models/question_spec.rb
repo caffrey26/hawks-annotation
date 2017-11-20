@@ -16,7 +16,7 @@ RSpec.describe Question, type: :model do
         Question.create(title: "some_text", description: "some_textdescription")
        question=Question.new(title: "some_text", description: "some_textdescription") 
        question.valid?
-       expect(question.errors[:title]).to be_empty, lambda {"question is already present"}
+       expect(question.errors[:title]).to include("has already been taken")
     end
 end
 

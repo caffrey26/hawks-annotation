@@ -14,8 +14,8 @@
         </div>
         
         <div class="pull-right">
-            <%=link_to "+ Add Files", project_project_files_path(project_id = @project.id), class: "btn btn-primary" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <%=link_to "+ Add Questions", project_questions_path(project_id = @project.id), class: "btn btn-primary" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <%=link_to "Files", project_project_files_path(project_id = @project.id), class: "btn btn-primary" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <%=link_to "Questions", project_questions_path(project_id = @project.id), class: "btn btn-primary" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <%= if @project.admin_id == current_user.id then link_to "+ Add Users", show_and_select_user_path(@project), class: "btn btn-primary" end %>
         </div>
         
