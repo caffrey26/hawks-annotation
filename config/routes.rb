@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   resources :user_projects
   root 'projects#homepage'
   get 'projects/:id/show_and_select_user' => 'projects#show_and_select_user', :as => :show_and_select_user
+  get 'projects/:project_id/questions/:id/copy_question' => 'questions#copy_question', :as => :copy_question
+
   post 'projects/:id/add' => 'projects#add', :as => :add_user
+  post 'projects/:project_id/questions/:id/add_question' => 'questions#add_question', :as => :add_question
 
 end

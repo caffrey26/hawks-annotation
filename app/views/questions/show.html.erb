@@ -7,7 +7,9 @@
             <div class="pull-right">
                 <%= if @question.q_type == "O" then link_to "Add Options", new_project_question_option_path(question_id: params[:id]), class: "btn btn-primary" end %>&nbsp;&nbsp;
                 <!--<%= link_to "Add Options",project_questions_path(params[:project_id]) , class: "btn btn-primary" %> &nbsp;-->
+                <%= if @question.parent_id.nil? then link_to "Copy Question", copy_question_path(project_id: params[:project_id]) , class: "btn btn-primary"  end %> &nbsp;
                 <%= link_to "Add Child Question", new_project_question_path(project_id: params[:project_id], parent_id: params[:id]), class: "btn btn-primary" %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
             </div>
             <h3><%= @question.title %></h3>
             <p><%= @question.created_at %></p>
@@ -21,6 +23,7 @@
         </br></br></br>
     
      <%= link_to "Back", project_questions_path(params[:project_id]), class: "btn btn-default" %> &nbsp;
+    <!--<%= link_to "Copy", '#', class: "btn btn-info" %> &nbsp;-->
     <%= link_to "Edit", edit_project_question_path(id: @question.id), class: "btn btn-info" %> &nbsp;
     <%= link_to "Delete", project_question_path(id: @question.id), method: :delete, data: {confirm: "Are you sure you want to delete this question?"}, class: "btn btn-danger" %>
     </br>
