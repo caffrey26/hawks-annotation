@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html> 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 <body>
   <div class="container">
   <div class="row">
@@ -46,15 +53,34 @@
 </div>
 
 <div class="col-sm-8">
-
   <div style="position: relative; z-index: 5000;">
     <h3>File View:</h3>
+    
+    
+    
+    <form>
+      <ul>
+      <label for="sel1">Select list (select one):</label>
+      <select class="form-control" id="sel1">
+        <% @files.each do |f| %>
+          <% if @question.q_type == "T" %>
+            <li><option><%= link_to f.file_name, "javascript:;", data: {hrf: new_project_answer_path(question_id: @question.id, file_id: f.id).to_s}, id:"file_id"+f.id.to_s %></option></li>
+          <% else %>
+              <li><option><%= link_to f.file_name, new_project_answer_path(question_id: @question.id, file_id: f.id), id:"file_id"+ f.id.to_s %></option></li>
+          <% end %>
+      <% end %>
+      </select>
+      
+      <%= link_to "Add file to reference", add_ref_project_answers_path(id: @answer.id, file_id: params[:file_id], question_id: params[:question_id]), class:"btn btn-primary" %>
+        </ul>    
+    </form>
+    <!--
     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id="filemenu-selector">
       <%= @file.file_name+" " %><span class="glyphicon glyphicon-chevron-down"></span>
       <span class="sr-only"></span></button>
     <%= link_to "Add file to reference", add_ref_project_answers_path(id: @answer.id, file_id: params[:file_id], question_id: params[:question_id]), class:"btn btn-primary" %>
     <!--<button class="btn btn-primary">Add file to reference</button>-->
-    <ul class="dropdown-menu" aria-labelledby="filemenu-selector">
+    <!-- <ul class="dropdown-menu" aria-labelledby="filemenu-selector">
       <% @files.each do |f| %>
           <% if @question.q_type == "T" %>
             <li><%= link_to f.file_name, "javascript:;", data: {hrf: new_project_answer_path(question_id: @question.id, file_id: f.id).to_s}, id:"file_id"+f.id.to_s %></li>
@@ -62,7 +88,9 @@
               <li><%= link_to f.file_name, new_project_answer_path(question_id: @question.id, file_id: f.id), id:"file_id"+ f.id.to_s %></li>
           <% end %>
       <% end %>
-    </ul>
+    </ul>    -->
+    
+     <!-- Guru, I have commented the code from line 77 to 91 and added my code from lines 61-76. Check the javascript functionality can be implemented with my code ---Prashanth -->
   </div>
 
 
@@ -71,7 +99,7 @@
     <% if (@file.attachment_url =~ /^.+\.([pP][dD][fF])$/).nil? %>
         <iframe src = <%= @file.attachment_url  %> ; width="800" height="350" id="content_viewer" enable-annotation></iframe>
     <% else %>
-        <iframe src= "<%=  "/annotation_viewer/viewer/web/viewer.html?file=" + @file.attachment_url%>" width="700" height="500" id="pdf_viewer"></iframe>
+        <iframe src= "<%=  "/annotation_viewer/viewer/web/viewer.html?file=" + @file.attachment_url%>" width="800" height="350" id="pdf_viewer"></iframe>
     <% end %>
 
   </div>
