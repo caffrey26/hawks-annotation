@@ -54,25 +54,25 @@
 
 <div class="col-sm-8">
   <div style="position: relative; z-index: 5000;">
-    <h3>File View:</h3>
+    <h3>File View</h3>
     
     
     
     <form>
-      <ul>
-      <label for="sel1">Select list (select one):</label>
+      
+      <label for="sel1"></label>
       <select class="form-control" id="sel1">
         <% @files.each do |f| %>
           <% if @question.q_type == "T" %>
-            <li><option><%= link_to f.file_name, "javascript:;", data: {hrf: new_project_answer_path(question_id: @question.id, file_id: f.id).to_s}, id:"file_id"+f.id.to_s %></option></li>
+            <option><%= link_to f.file_name, "javascript:;", data: {hrf: new_project_answer_path(question_id: @question.id, file_id: f.id).to_s}, id:"file_id"+f.id.to_s %></option>
           <% else %>
-              <li><option><%= link_to f.file_name, new_project_answer_path(question_id: @question.id, file_id: f.id), id:"file_id"+ f.id.to_s %></option></li>
+              <option><%= link_to f.file_name, new_project_answer_path(question_id: @question.id, file_id: f.id), id:"file_id"+ f.id.to_s %></option>
           <% end %>
       <% end %>
       </select>
       
       <%= link_to "Add file to reference", add_ref_project_answers_path(id: @answer.id, file_id: params[:file_id], question_id: params[:question_id]), class:"btn btn-primary" %>
-        </ul>    
+            
     </form>
     <!--
     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id="filemenu-selector">
@@ -106,9 +106,7 @@
 
 </div>
 
-  <!--<div class="col-sm-3" style="background-color: #ddffdd">-->
-    <!--<h3>Annotations:</h3>-->
-  <!--</div>-->
+  
 </div>
 </div>
 <% if (@file.attachment_url =~ /^.+\.([pP][dD][fF])$/).nil? %>

@@ -1,7 +1,14 @@
 <!DOCTYPE html>
-<html>  
 
+<html>  
 <head>
+ <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <!-- THIS LINE -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+
   <div class ="row">
     <div class="col-md-6">
     <%= form_tag(project_questions_path, method: :get) do %>
@@ -27,12 +34,29 @@
 </head>
 
 <body>
+  
+
   <div class="container">
     <div class="row">
       <ol>
         <% @questions.each do |p| %>
-        <li><h4><%= link_to p.title, project_question_path(id: p.id) %></h4></li>
-        <p><%= p.description%></p>
+        
+        <div id="accordion">
+            <h4>
+                <a data-toggle="collapse" data-parent="#accordion" href="#<%=p.id%>" aria-expanded="false"  >
+                    <li><h4><%= p.title %></h4></li>
+                    <!--<li><li><h4><%= link_to p.title, project_question_path(id: p.id) %></h4></li></li> -->
+                </a>
+            </h4>
+        
+        <div id="<%=p.id%>" class="panel-collapse collapse " >
+            
+               <li><%= p.title %></li>
+        
+    </div>
+</div>
+        
+        
         <% end %>
       </ol>
     </div>
@@ -40,3 +64,4 @@
 </body>
 
 </html>
+
