@@ -102,7 +102,6 @@ GEM
     cucumber-wire (0.0.1)
     d3-rails (4.10.2)
       railties (>= 3.1)
-    database_cleaner (1.6.2)
     debug_inspector (0.0.3)
     devise (4.3.0)
       bcrypt (~> 3.0)
@@ -267,7 +266,7 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
-  bcrypt
+  bcrypt (= 3.1.11)
   bootstrap-sass (~> 3.2.0)
   bootswatch-rails
   byebug
@@ -276,7 +275,6 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   cucumber-rails
   d3-rails
-  database_cleaner
   devise (~> 4.3)
   jbuilder (~> 2.0)
   jquery-rails
@@ -296,4 +294,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.15.4
+   1.16.0

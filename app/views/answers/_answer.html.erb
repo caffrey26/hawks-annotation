@@ -1,0 +1,10 @@
+<%= simple_form_for @answer, url: project_answers_path(question_id: @question.id, user_id: current_user.id, id: @answer.id ),remote: true, :method => :post do |f| %>
+
+    <% if @question.q_type == "T"%>
+        <%= f.text_area :answer_text, id:"text_answer" %> </br>
+    <% else %>
+        <%= f.collection_radio_buttons :answer_text, Option.where(question_id: @question.id), :id, :option_text, item_wrapper_class: :block_radio_button_collection%>
+    <% end %>
+    </br>
+<%= f.button :submit, "Save Answer", class: "btn btn-primary"%>
+<% end %>

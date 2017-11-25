@@ -1,0 +1,16 @@
+
+
+
+
+
+
+
+
+
+<% if (@file.attachment_url =~ /^.+\.([pP][dD][fF])$/).nil? %>
+    <iframe src = <%= @file.attachment_url  %> ; width="800" height="350" id="content_viewer" enable-annotation></iframe>
+<% else %>
+    <iframe src= "<%=  "/annotation_viewer/viewer/web/viewer.html?file=" + @file.attachment_url%>" width="800" height="350" id="pdf_viewer"></iframe>
+<% end %>
+
+

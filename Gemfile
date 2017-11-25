@@ -45,7 +45,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem "rspec"
   gem "tzinfo-data"
-  gem 'bcrypt', platforms: :ruby
+  # gem 'bcrypt', platforms: :ruby
+  gem 'bcrypt', '3.1.11', platforms: [:ruby, :x64_mingw]
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'sqlite3'
@@ -63,7 +64,7 @@ gem 'simplecov', :require => false, :group => :test
 group :test do
   gem 'cucumber-rails', :require => false
   # database_cleaner is not required, but highly recommended
-  gem 'database_cleaner'
+  # gem 'database_cleaner'
 end
 
 group :production do

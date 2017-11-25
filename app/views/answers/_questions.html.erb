@@ -1,0 +1,37 @@
+<ol>
+  <% @questions.each do|q| %>
+      <% @question = q %>
+      <div id="accordion">
+        <h4>
+          <a data-toggle="collapse" data-parent="#accordion" href="#<%=q.id%>" aria-expanded="false"  >
+            <li><h4><%= q.title %></h4></li>
+          </a>
+        </h4>
+
+        <div id="<%=q.id%>" class="panel-collapse collapse " >
+
+          <p><%= q.description %></p>
+
+          </br>
+
+          <% answers = Answer.where(question_id: q.id, user_id: current_user.id).order("created_at DESC") %>
+          <% if answers.length > 0 %>
+
+              <% @answer = answers.first %>
+          <% else %>
+
+              <% @answer = Answer.new(question_id: params[:question_id], id: -1) %>
+
+          <% end %>
+          <%= render 'answer'%>
+
+
+        </div>
+      </div>
+
+<% end %>
+</ol>
+
+
+
+

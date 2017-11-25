@@ -1,48 +1,27 @@
-<!DOCTYPE html>
-<html> 
-
-<head>
-  <div class="container">
+<div class="container">
   <div class="row">
-    <div class="col-md-6" id="abc">
-      <h3>Questions to be answered</h3>
-      <p>
-         Click on a question to answer
-      </p>
+    <div class="col-sm-4">
+      <h3>Question View:</h3>
+      <%= render 'questions' %>
+    </div>
+
+  <div class="col-sm-8">
+    <h3>File View:</h3>
+    <div style="position: relative; z-index: 5000;">
+      <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id="filemenu-selector">
+        <%= @file.file_name+" " %><span class="glyphicon glyphicon-chevron-down"></span>
+        <span class="sr-only"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="filemenu-selector">
+        <% @files.each do |f| %>
+            <li><%= link_to f.file_name, display_file_project_answers_path(file_id: f.id), remote: true %></li>
+        <% end %>
+      </ul>
+      <div id="file_preview">
+        <%= render partial: 'display_file' %>
+      </div>
     </div>
   </div>
   </div>
-
-<body>
-  <div class="container">
-  <div class="row">
-  <ol>
-    <% @questions.each do|q| %>
-      <li><h4><%= link_to q.title, new_project_answer_path(question_id: q, file_id: @first_file_id) %></h4></li>
-    <% end %>  
-  </ol>
-  </div>
-  </div>
-</body>
-</br></br>
-<div class="container">
-   <h4><%= link_to "Download Answers as csv", project_answers_path+".csv"  %></h4>
 </div>
-</html>
 
-<script>
-    // d3.select("#abc").text(function(){
-    //     console.log(d3.select("#file_selected").node().value);
-    //     // console.log(params[:file_selected]);
-    //     // return d3.select("#answer_file_id").value();
-    // });
-   console.log(<%= params[:file_selected] %>);
-
-    // d3.select("#file_selected").on("change", function(){
-    //     d3.select("#abc").text(function(){
-    //       var file_id = d3.select("#file_selected").node().value;
-    //       d3.select("#file_view").attr("src",)
-    //       return file_id;
-    //     });
-    // });
-</script>

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :projects do
     resources :answers do
       collection do
-        get :add_ref
+        get :add_ref, :display_file
       end
     end
     resources :project_files
