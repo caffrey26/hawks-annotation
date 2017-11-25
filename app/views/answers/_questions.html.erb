@@ -9,21 +9,30 @@
         </h4>
 
         <div id="<%=q.id%>" class="panel-collapse collapse " >
-
-          <p><%= q.description %></p>
+          <% if q.description.length>0 %>
+            <%= q.description %></br>
+        <% end %>
 
           </br>
 
+          <h5>Answer:</h5>
           <% answers = Answer.where(question_id: q.id, user_id: current_user.id).order("created_at DESC") %>
           <% if answers.length > 0 %>
-
               <% @answer = answers.first %>
           <% else %>
-
               <% @answer = Answer.new(question_id: params[:question_id], id: -1) %>
-
           <% end %>
           <%= render 'answer'%>
+
+          </br>
+
+          <h5>References:</h5>
+          <%= link_to "Add current file to reference","#", onclick: "add_ref_js(" + q.id.to_s + "," + @answer.id.to_s + "," + current_user.id.to_s + ");", remote:true, class:"btn btn-primary btn-sm", name:"add_ref_btn" %>
+          <% div_id = "references_list_" + @question.id.to_s %>
+          <div id=<%= div_id%> >
+            <%= render 'references'%>
+          </div>
+
 
 
         </div>

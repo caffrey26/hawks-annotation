@@ -6,5 +6,5 @@
         <%= f.collection_radio_buttons :answer_text, Option.where(question_id: @question.id), :id, :option_text, item_wrapper_class: :block_radio_button_collection%>
     <% end %>
     </br>
-<%= f.button :submit, "Save Answer", class: "btn btn-primary"%>
+<%= f.button :submit, "Save Answer", class: "btn btn-primary btn-sm" %>
 <% end %>

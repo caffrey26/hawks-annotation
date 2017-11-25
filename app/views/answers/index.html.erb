@@ -7,21 +7,26 @@
 
   <div class="col-sm-8">
     <h3>File View:</h3>
-    <div style="position: relative; z-index: 5000;">
-      <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id="filemenu-selector">
-        <%= @file.file_name+" " %><span class="glyphicon glyphicon-chevron-down"></span>
-        <span class="sr-only"></span>
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="filemenu-selector">
-        <% @files.each do |f| %>
-            <li><%= link_to f.file_name, display_file_project_answers_path(file_id: f.id), remote: true %></li>
-        <% end %>
-      </ul>
-      <div id="file_preview">
-        <%= render partial: 'display_file' %>
-      </div>
-    </div>
+   <div id="file_preview">
+     <%= render 'display_file' %>
+   </div>
   </div>
   </div>
 </div>
+
+<script>
+    function add_ref_js(question_id, answer_id, user_id){
+        var file_id = $('[id^=current_file]').attr("selected-file");
+        console.log("/projects/:project_id/answers/add_ref/?question_id="+question_id+"&answer_id="+answer_id+"&user_id="+user_id+"file_id="+file_id);
+        $.ajax({
+            url: "/projects/:project_id/answers/add_ref/?question_id="+question_id+"&answer_id="+answer_id+"&user_id="+user_id+"&file_id="+file_id
+        });
+    };
+
+
+    //    $(document).ajaxComplete(function( event,request, settings ) {
+//        $("#success_message").fadeIn().style("visibility", "visible").next().delay(500).fadeOut().style("visibility", "hidden");
+//    });
+
+</script>
 

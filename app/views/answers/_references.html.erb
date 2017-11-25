@@ -1,0 +1,10 @@
+<% references = Reference.where(question_id: @question.id) %>
+<% if references.length < 1 %>
+<br> No references yet
+<% else %>
+  <ol>
+    <% references.each do |r| %>
+        <li><%= ProjectFile.find(r.file_id).file_name %></li>
+    <% end %>
+  </ol>
+<% end %>

@@ -14,11 +14,12 @@
           <% if current_user.present? %>
             <li><%= link_to "All Projects", projects_path %></li>
           <% end %>
-          <% if (controller_name == "projects" && action_name == "show") || controller_name == "project_files" || controller_name == "questions" || controller_name == "answers" %>
+          <% if (controller_name == "projects" && action_name == "show") || controller_name == "project_files" || controller_name == "questions" || controller_name == "answers" || controller_name == "downloads" %>
             <% project_id =  (controller_name == "projects" && action_name == "show")? params[:id] : params[:project_id]  %>
             <li><%= link_to "Files", project_project_files_path(project_id = project_id) %></li>
             <li><%= link_to "Questions", project_questions_path(project_id = project_id) %></li>
             <li><%= link_to "Answers", project_answers_path(project_id = project_id) %></li>
+            <li><%= link_to "Downloads", project_downloads_path(project_id = project_id) %></li>
           <% end %>
         </ul>
         

@@ -3,13 +3,14 @@ Rails.application.routes.draw do
   resources :projects do
     resources :answers do
       collection do
-        get :add_ref, :display_file
+        get :display_file, :add_ref
       end
     end
     resources :project_files
     resources :questions do
       resources :options
     end
+    resources :downloads
   end
 
   # get '/projects/homepage' => 'projects#show', as: :all_projects
