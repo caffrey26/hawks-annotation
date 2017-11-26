@@ -1,15 +1,16 @@
 
+<ol>
 
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   
   <% @questions.each do|q| %>
       <% @question = q %>
   
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="heading<%=q.id%>">
+  <div class="panel panel-default" style="border : none; background-color: rgb(255, 255, 255);">
+    <div class="panel-heading" role="tab" id="heading<%=q.id%>" style="background-color: rgb(255, 255, 255); border:none;">
       <h4 class="panel-title">
         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%=q.id%>" aria-expanded="true" aria-controls="collapse<%=q.id%>">
-          <%= q.title %>
+          <li><%= q.title %></li>
         </a>
       </h4>
     </div>
@@ -43,3 +44,4 @@
   
   <% end %>
 </div>
+</ol>
