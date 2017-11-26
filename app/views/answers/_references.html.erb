@@ -4,36 +4,26 @@
 <% else %>
     </br>
   <ol>
+    
+      
     <% references.each do |r| %>
-        <li><%= ProjectFile.find(r.file_id).file_name %>
-          <div id="abc" >
-            <% annotations = Annotation.where(question_id: @question.id, file_id: r.file_id) %>
-              <% if annotations.length > 0 %>
-                   <% annotations.each do|a| %>
-                <ul>
-                  <li><%= a.text %></li>
-                </ul>
-               <% end %>
-            <% end %>
-            <%= simple_form_for Annotation.new, url: add_annotation_project_answers_path(question_id: @question.id, file_id: r.file_id, answer_id: @answer.id ),:method => :get,remote: true do |a| %>
-                <%= a.text_area :text, id:"annotation_text" %>
-                <%= a.button :submit, "Save Text", class: "btn btn-primary btn-xs" %>
-            <% end %>
+    <% @file = ProjectFile.find(r.file_id) %>
+    <div class="panel-group" id="accordion2" style="border : none;">
+          <div class="panel panel-default" style="border : none; background-color: rgb(255, 255, 255);">
+            <div class="panel-heading" style="border : none; background-color: rgb(255, 255, 255);">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion2" href="#collapseInner<%= "file-id-" + r.file_id.to_s + "question-id-" + @question.id.to_s %>">
+                <li><%= @file.file_name %></li>
+              </a></h4>
+            </div>
+            <div id="collapseInner<%= "file-id-" + r.file_id.to_s + "question-id-" + @question.id.to_s %>" class="panel-collapse collapse">
+              <div class="panel-body">
+                <%= render 'annotation' %>
+              </div>
+            </div>
           </div>
-        </li>
+    </div>
     <% end %>
   </ol>
 <% end %>
-
-
-
-<!--<div id="accordion">-->
-<!--<a data-toggle="collapse" data-parent="#accordion" href="#abc" aria-expanded="false"  >-->
-<!--<li></li>-->
-<!--</a>-->
-<!--<div id="abc" class="panel-collapse collapse " >-->
-  <!--Hello-->
-<!--</div>-->
-<!--</div>-->
 
 

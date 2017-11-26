@@ -29,12 +29,13 @@
   </head>
 
     <body>
+      <ol>
   <% @project_files.each do |p| %>
 
       <div class="container">
         <div class="row">
           <div class="col-md-3">
-            <h3><%= link_to p.file_name, project_project_file_path(id: p.id) %></h3>
+            <li><h3><%= link_to p.file_name, project_project_file_path(id: p.id) %></h3></li>
             
            <!-- <div class="row">
               </br>
@@ -62,6 +63,7 @@
       
   </br>
     <% end %>
+    </ol>
     </body>
 </html>
 

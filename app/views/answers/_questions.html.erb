@@ -1,15 +1,16 @@
 
+<ol>
 
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   
   <% @questions.each do|q| %>
       <% @question = q %>
   
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="heading<%=q.id%>">
+  <div class="panel panel-default" style="border : none; background-color: rgb(255, 255, 255);">
+    <div class="panel-heading" role="tab" id="heading<%=q.id%>" style="background-color: rgb(255, 255, 255); border:none;">
       <h4 class="panel-title">
         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%=q.id%>" aria-expanded="true" aria-controls="collapse<%=q.id%>">
-          <%= q.title %>
+          <li><%= q.title %></li>
         </a>
       </h4>
     </div>
@@ -19,8 +20,9 @@
             <%= q.description %></br>
         <% end %>
 
-
+        <div id="answer-question-<%= q.id %>"  >
           <h5>Answer:</h5>
+
           <% answers = Answer.where(question_id: q.id, user_id: current_user.id).order("created_at DESC") %>
           <% if answers.length > 0 %>
               <% @answer = answers.first %>
@@ -28,7 +30,7 @@
               <% @answer = Answer.new(question_id: params[:question_id], id: -1) %>
           <% end %>
           <%= render 'answer'%>
-
+        </div>
 
           <h5>References:</h5>
           <%= link_to "Add current file to reference","#", onclick: "add_ref_js(" + q.id.to_s + "," + @answer.id.to_s + "," + current_user.id.to_s + ");", remote:true, class:"btn btn-primary btn-sm", name:"add_ref_btn" %>
@@ -43,3 +45,4 @@
   
   <% end %>
 </div>
+</ol>
