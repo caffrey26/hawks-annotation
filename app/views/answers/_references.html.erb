@@ -3,8 +3,23 @@
 <br> No references yet
 <% else %>
   <ol>
+    
+      
     <% references.each do |r| %>
-        <li><%= ProjectFile.find(r.file_id).file_name %></li>
+    <div class="panel-group" id="accordion2" style="border : none;">
+          <div class="panel panel-default" style="border : none; background-color: rgb(255, 255, 255);">
+            <div class="panel-heading" style="border : none; background-color: rgb(255, 255, 255);">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion2" href="#collapseInner<%= r.id%>">
+                <li><%= ProjectFile.find(r.file_id).file_name %></li>
+              </a></h4>
+            </div>
+            <div id="collapseInner<%= r.id%>" class="panel-collapse collapse">
+              <div class="panel-body">
+                Add Your Annotation here
+              </div>
+            </div>
+          </div>
     <% end %>
+    
   </ol>
 <% end %>
