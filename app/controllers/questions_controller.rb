@@ -11,10 +11,43 @@ class QuestionsController < ApplicationController
     end
     
     def create
+      
       @question = Project.find(params[:project_id]).
                               questions.
                                 new(params_valid) 
       if(@question.save)
+        if params[:question][:q_type] == 'TF' then
+          @question.q_type = 'O'
+          @question.save
+          @option1 = @question.options.new(option_text: "True")
+          @option2 = @question.options.new(option_text: "False")
+          if @option1.valid? and @option2.valid? then
+            @option1.save
+            @option2.save
+          else
+            @parent_id =  params[:question][:parent_id]
+            @url = project_questions_path
+            render :new
+          end
+        end  
+          
+        if params[:question][:q_type] == 'YN' then
+          @question.q_type = 'O'
+          @question.save
+          @option1 = @question.options.new(option_text: "Yes")
+          @option2 = @question.options.new(option_text: "No")
+          @option3 = @question.options.new(option_text: "Maybe")
+
+          if @option1.valid? and @option2.valid? and @option3.valid? then
+            @option1.save
+            @option2.save
+            @option3.save
+          else
+            @parent_id =  params[:question][:parent_id]
+            @url = project_questions_path
+            render :new
+          end
+        end
         if params[:question][:parent_id].nil? then 
           redirect_to project_questions_path
         else
@@ -48,24 +81,57 @@ class QuestionsController < ApplicationController
       end
     end
     
+
     def add_question 
       
-      old_record = Question.find(params[:id]);
+      old_record = Question.find(params[:id])
       
       params[:project][:project_ids].each do |p|
-          
-          new_record = old_record.dup
-          new_record.project_id = p
-          new_record.save!
-
-          if old_record.options.present? then
-            old_record.options.each do |o|
-              new_option = o.dup
-              new_option.question_id = new_record.id
-              new_option.save!
+          if p.empty? then 
+          else
+            
+            new_record = old_record.dup
+            new_record.project_id = p
+            
+            if new_record.save then
+                  if old_record.options.present? then
+                    old_record.options.each do |o|
+                      new_option = o.dup
+                      new_option.question_id = new_record.id
+                      if new_option.save then
+                      else
+                        flash[:notice] = new_option.errors.full_messages
+                        return redirect_to copy_question_path(project_id: params[:project_id])
+                      end
+                    end
+                  end
+                  # if old_record.child_questions.present? then
+                  #     old_record.child_questions.each do |q|
+                  #       child = q.dup
+                  #       child.parent_id = new_record.id
+                  #       if child.save then 
+                  #       else
+                  #         flash[:notice] = child.errors.full_messages
+                  #         return redirect_to copy_question_path(project_id: params[:project_id])
+                  #       end
+                  #       # if q.options.present? then
+                  #       #   q.options.each do |o|
+                  #       #   new_option = o.dup
+                  #       #   new_option.question_id = child.id
+                  #       #   if new_option.save then
+                  #       #   else
+                  #       #     flash[:notice] = new_option.errors.full_messages
+                  #       #     return redirect_to copy_question_path(project_id: params[:project_id])
+                  #       #   end
+                  #       # end
+                  #       # end
+                  #   end
+                  # end
+            else 
+              flash[:notice] = new_record.errors.full_messages
+              return redirect_to copy_question_path(project_id: params[:project_id])
             end
           end
-          
       end
       
       redirect_to project_question_path(id: params[:id])
