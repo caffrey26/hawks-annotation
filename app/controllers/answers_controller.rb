@@ -51,6 +51,16 @@ class AnswersController < ApplicationController
     end
   end
 
+  def add_annotation
+    a = Annotation.new(question_id: params[:question_id], answer_id: params[:answer_id], user_id: current_user.id, file_id: params[:file_id])
+    a.text = params[:annotation][:text].to_s
+    a.save
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
 
   def find_required_content
     project_id = params[:project_id]

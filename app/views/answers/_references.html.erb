@@ -2,9 +2,38 @@
 <% if references.length < 1 %>
 <br> No references yet
 <% else %>
+    </br>
   <ol>
     <% references.each do |r| %>
-        <li><%= ProjectFile.find(r.file_id).file_name %></li>
+        <li><%= ProjectFile.find(r.file_id).file_name %>
+          <div id="abc" >
+            <% annotations = Annotation.where(question_id: @question.id, file_id: r.file_id) %>
+              <% if annotations.length > 0 %>
+                   <% annotations.each do|a| %>
+                <ul>
+                  <li><%= a.text %></li>
+                </ul>
+               <% end %>
+            <% end %>
+            <%= simple_form_for Annotation.new, url: add_annotation_project_answers_path(question_id: @question.id, file_id: r.file_id, answer_id: @answer.id ),:method => :get,remote: true do |a| %>
+                <%= a.text_area :text, id:"annotation_text" %>
+                <%= a.button :submit, "Save Text", class: "btn btn-primary btn-xs" %>
+            <% end %>
+          </div>
+        </li>
     <% end %>
   </ol>
 <% end %>
+
+
+
+<!--<div id="accordion">-->
+<!--<a data-toggle="collapse" data-parent="#accordion" href="#abc" aria-expanded="false"  >-->
+<!--<li></li>-->
+<!--</a>-->
+<!--<div id="abc" class="panel-collapse collapse " >-->
+  <!--Hello-->
+<!--</div>-->
+<!--</div>-->
+
+
