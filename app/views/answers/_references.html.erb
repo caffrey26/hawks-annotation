@@ -5,14 +5,16 @@
     </br>
   <ol>
     
-      
+    
     <% references.each do |r| %>
     <% @file = ProjectFile.find(r.file_id) %>
+    
     <div class="panel-group" id="accordion2" style="border : none;">
           <div class="panel panel-default" style="border : none; background-color: rgb(255, 255, 255);">
             <div class="panel-heading" style="border : none; background-color: rgb(255, 255, 255);">
               <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion2" href="#collapseInner<%= "file-id-" + r.file_id.to_s + "question-id-" + @question.id.to_s %>">
-                <li><%= @file.file_name %></li>
+                <li style="font-size:12px;"><%= @file.file_name %></li>
+                <%= link_to "Remove",remove_ref_project_answers_path(reference_id: r.id), remote: true %>
               </a></h4>
             </div>
             <div id="collapseInner<%= "file-id-" + r.file_id.to_s + "question-id-" + @question.id.to_s %>" class="panel-collapse collapse">
@@ -21,7 +23,8 @@
               </div>
             </div>
           </div>
-    </div>
+          </div>
+    
     <% end %>
   </ol>
 <% end %>
