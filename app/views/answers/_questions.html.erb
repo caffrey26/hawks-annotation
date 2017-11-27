@@ -36,8 +36,9 @@
           <%= link_to "Add current file to reference","#", onclick: "add_ref_js(" + q.id.to_s + "," + @answer.id.to_s + "," + current_user.id.to_s + ");", remote:true, class:"btn btn-primary btn-sm", name:"add_ref_btn" %>
           <% div_id = "references_list_" + @question.id.to_s %>
           <div id=<%= div_id%> >
+          <div id="q_references-"<%= @question.id %>> 
             <%= render 'references'%>
-          </div>
+          </div></div>
       </div>
     </div>
   </div>
