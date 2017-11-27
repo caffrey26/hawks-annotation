@@ -3,17 +3,19 @@
  
 <table>
   <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <!--<th></th>-->
+    <th></th>
+    <th></th>
+    <th></th>
     <!--<th></th>-->
     <!--<th></th>-->
   </tr>
  
 <% @question.child_questions.each do |q| %>
   <tr>
-    <td><%= link_to q.title, project_question_path(id: q.id) %></td>
-    <td><%= q.description %></td>
+    <td><%= q.title %></td>
+    <td><%= link_to "Show", project_question_path(id: q.id) %></td>
+    <td><%= link_to "Remove", project_question_path(id: q.id), method: :delete, data: { confirm: "Are you sure?" } %></td>
+
   </tr>
 <% end %>
 </table>
