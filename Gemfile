@@ -30,6 +30,8 @@ gem 'd3-rails'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'ckeditor'
+gem 'figaro'
+gem 'fog-aws'
 # gem 'annotator-rails'
 
 # Use ActiveModel has_secure_password
