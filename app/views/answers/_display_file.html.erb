@@ -1,26 +1,30 @@
-<div style="position: relative; z-index: 5000; ">
-  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id="current_file" selected-file=<%= @file.id.to_s %> >
-    <%= @file.file_name+" " %><span class="glyphicon glyphicon-chevron-down"></span>
-    <span class="sr-only"></span>
-  </button>
+<% if @files.length > 0 %>
 
-  <ul class="dropdown-menu" aria-labelledby="filemenu-selector">
-    <% @files.each do |f| %>
-        <li><%= link_to f.file_name, display_file_project_answers_path(file_id: f.id), remote: true %></li>
+  <div style="position: relative; z-index: 5000; ">
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id="current_file" selected-file=<%= @file.id.to_s %> >
+      <%= @file.file_name+" " %><span class="glyphicon glyphicon-chevron-down"></span>
+      <span class="sr-only"></span>
+    </button>
+
+    <ul class="dropdown-menu" aria-labelledby="filemenu-selector">
+      <% @files.each do |f| %>
+          <li><%= link_to f.file_name, display_file_project_answers_path(file_id: f.id), remote: true %></li>
+      <% end %>
+    </ul>
+  </div>
+    </br>
+
+  <div id="file_preview">
+    <% if (@file.attachment_url =~ /^.+\.([pP][dD][fF])$/).nil? %>
+        <iframe src = <%= @file.attachment_url  %> ; width="800" height="550" id="content_viewer" enable-annotation></iframe>
+    <% else %>
+        <iframe src= "<%=  "/annotation_viewer/viewer/web/viewer.html?file=" + @file.attachment_url%>" width="800" height="550" id="pdf_viewer"></iframe>
     <% end %>
-  </ul>
-</div>
-  </br>
+  </div>
 
-<div id="file_preview">
-  <% if (@file.attachment_url =~ /^.+\.([pP][dD][fF])$/).nil? %>
-      <iframe src = <%= @file.attachment_url  %> ; width="800" height="550" id="content_viewer" enable-annotation></iframe>
-  <% else %>
-      <iframe src= "<%=  "/annotation_viewer/viewer/web/viewer.html?file=" + @file.attachment_url%>" width="800" height="550" id="pdf_viewer"></iframe>
-  <% end %>
-</div>
-
-
+<% else %>
+  No files to preview
+<% end %>
 
 
 
