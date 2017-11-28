@@ -5,7 +5,7 @@ Feature: New project has to be created
   
  Scenario: New project should be created
    
-        When I login
+        When I login 
         #Then I should see "Signed in successfully."
         
         When I'm in  create projects page
@@ -13,6 +13,16 @@ Feature: New project has to be created
         Then I press on the new projects "CreateNewProject"
         Then I create new project title and description
         Then I click "Create Project"
+        Then I click_link "something"
+        
+        Then I click_link "Edit"
+        Then I update values
+        Then I click "Update Project"
+        Then I click_link "Back"
+        Then I click_link "something"
+        Then I click_link "Delete"
+        
+       
   
        # Then create new project name
     #    Then create description

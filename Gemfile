@@ -70,3 +70,7 @@ end
 group :production do
   gem 'pg'
 end
+
+group :test do
+  gem 'database_cleaner'
+end
