@@ -25,6 +25,9 @@ Feature: New project has to be created
         Then I click_button "submit"
         Then I go to Add child question page
         Then I click_button "Create Question"
+        Then I go to options page
+        Then I fill details
+        Then I click_link "Create Option"
         
  Scenario: New question should be created as Text as answer
    

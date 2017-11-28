@@ -263,6 +263,11 @@ Then("I sign out") do
   visit '/'
 end
 
+Then("I go to options page") do
+  visit '/projects/7/questions/10/options/new'
+end
 
 
-
+Then("I fill details") do
+  fill_in("Option", with: 'option1', :match => :prefer_exact)
+end
