@@ -30,6 +30,8 @@ gem 'd3-rails'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'ckeditor'
+gem 'figaro'
+gem 'fog-aws'
 # gem 'annotator-rails'
 
 # Use ActiveModel has_secure_password
@@ -50,6 +52,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'sqlite3'
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -65,6 +68,7 @@ group :test do
   gem 'cucumber-rails', :require => false
   # database_cleaner is not required, but highly recommended
   # gem 'database_cleaner'
+  gem 'faker'
 end
 
 group :production do

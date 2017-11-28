@@ -22,8 +22,8 @@
   <!--<%= f.input :description, label: "Description" %>-->
   <!--<%= f.text_area :description%> </br>-->
   
-  <%= f.collection_radio_buttons( :q_type, [['T', 'Text as Answer'] ,['O', 'Options as Answer']], :first, :last ) do |b| %>
-  <%=  b.label { b.radio_button + "   " + b.text } %> <br> </br>
+  <%= f.collection_radio_buttons( :q_type, [['T', 'Text as Answer'] ,['O', 'Create Custom Options'], ['TF','Template: True/False'], ['YN','Template: Yes/No/Maybe']], :first, :last ) do |b| %>
+  <%=  b.label { b.radio_button + "   " + b.text } %> <br>
   <% end %> 
 
   </br>

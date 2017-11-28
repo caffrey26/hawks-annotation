@@ -7,29 +7,22 @@ class AnswersController < ApplicationController
   end
 
   def create
+    @q_id = params[:question_id]
+
     if params[:id] == "-1"
       answer = Question.find(params[:question_id]).answers.build(params_valid)
       answer.user_id = params[:user_id]
       answer.project_id = params[:project_id]
-      if answer.save
-        redirect_to project_answers_path()
-      else
-        render html: "Failed"
-      end
+      answer.save
     else
       answer = Answer.find(params[:id])
-      if answer.update(params_valid)
-        redirect_to project_answers_path()
-      else
-        render html: "Failed"
-      end
+      answer.update(params_valid)
     end
 
     respond_to do |format|
-      format.html
-      format.json
+      # format.html
+      format.js
     end
-
   end
 
   def display_file
@@ -48,6 +41,32 @@ class AnswersController < ApplicationController
     end
     respond_to do |format|
       format.js
+    end
+  end
+  
+  def remove_ref
+    @question = Question.find(Reference.find(params[:reference_id]).question_id)
+    Reference.find(params[:reference_id]).destroy
+    respond_to do |format|
+      format.js
+    end
+  end
+  
+
+  def add_annotation
+    @file = ProjectFile.find(params[:file_id])
+    @question = Question.find(params[:question_id])
+    # @answer = Answer.find(params[:answer_id])
+
+    a = Annotation.new(question_id: params[:question_id], user_id: current_user.id, file_id: params[:file_id])
+    a.text = params[:annotation][:text].to_s
+    if a.save
+      @ref = "collapseInnerfile-id-" + params[:file_id] + "question-id-" + params[:question_id]
+      puts(@ref)
+    end
+    # {render layout: true, content_type: 'text/javascript'}
+    respond_to do |format|
+      format.js {render content_type: 'text/javascript'}
     end
   end
 
