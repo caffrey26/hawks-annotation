@@ -21,7 +21,7 @@ Feature: New project has to be created
         Then I click_button "Search"
         Then I should go to add a new file page
         Then I should fill in values
-        Then I upload file
+        #Then I upload file
         Then I click_button "Create Project file"
        
   

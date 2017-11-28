@@ -14,18 +14,18 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-11-27T05:26:54+00:00">2017-11-27T05:26:54+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-11-28T01:30:51+00:00">2017-11-28T01:30:51+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">64.23%</span></span>
+    (<span class="covered_percent"><span class="red">66.15%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.16
+         2.17
        </span>
     </span> hits/line)
   </h2>
@@ -33,8 +33,8 @@
   <div>
     <b>27</b> files in total.
     <b>260</b> relevant lines. 
-    <span class="green"><b>167</b> lines covered</span> and
-    <span class="red"><b>93</b> lines missed </span>
+    <span class="green"><b>172</b> lines covered</span> and
+    <span class="red"><b>88</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -92,12 +92,12 @@
       
       <tr>
         <td class="strong"><a href="#123deadf66de7e9e0334b3c904b121de5bc20922" class="src_link" title="app/controllers/project_files_controller.rb">app/controllers/project_files_controller.rb</a></td>
-        <td class="red strong">54.84 %</td>
+        <td class="red strong">70.97 %</td>
         <td>61</td>
         <td>31</td>
-        <td>17</td>
-        <td>14</td>
-        <td>1.0</td>
+        <td>22</td>
+        <td>9</td>
+        <td>1.1</td>
       </tr>
       
       <tr>
@@ -329,11 +329,11 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="red">59.7%</span></span>
+    (<span class="covered_percent"><span class="red">62.19%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.33
+         2.35
        </span>
     </span> hits/line)
   </h2>
@@ -341,8 +341,8 @@
   <div>
     <b>8</b> files in total.
     <b>201</b> relevant lines. 
-    <span class="green"><b>120</b> lines covered</span> and
-    <span class="red"><b>81</b> lines missed </span>
+    <span class="green"><b>125</b> lines covered</span> and
+    <span class="red"><b>76</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -400,12 +400,12 @@
       
       <tr>
         <td class="strong"><a href="#123deadf66de7e9e0334b3c904b121de5bc20922" class="src_link" title="app/controllers/project_files_controller.rb">app/controllers/project_files_controller.rb</a></td>
-        <td class="red strong">54.84 %</td>
+        <td class="red strong">70.97 %</td>
         <td>61</td>
         <td>31</td>
-        <td>17</td>
-        <td>14</td>
-        <td>1.0</td>
+        <td>22</td>
+        <td>9</td>
+        <td>1.1</td>
       </tr>
       
       <tr>
@@ -1700,11 +1700,11 @@
         <div class="source_table" id="123deadf66de7e9e0334b3c904b121de5bc20922">
   <div class="header">
     <h3>app/controllers/project_files_controller.rb</h3>
-    <h4><span class="red">54.84 %</span> covered</h4>
+    <h4><span class="red">70.97 %</span> covered</h4>
     <div>
       <b>31</b> relevant lines. 
-      <span class="green"><b>17</b> lines covered</span> and
-      <span class="red"><b>14</b> lines missed.</span>
+      <span class="green"><b>22</b> lines covered</span> and
+      <span class="red"><b>9</b> lines missed.</span>
     </div>
   </div>
   
@@ -1789,14 +1789,14 @@
           <code class="ruby">    def create</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="14">
-          
+        <li class="covered" data-hits="1" data-linenumber="14">
+          <span class="hits">1</span>
           
           <code class="ruby">      @project_file = Project.find(params[:project_id]).project_files.build(params_valid) </code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="15">
-          
+        <li class="covered" data-hits="1" data-linenumber="15">
+          <span class="hits">1</span>
           
           <code class="ruby">      if(@project_file.save)</code>
         </li>
@@ -1813,14 +1813,14 @@
           <code class="ruby">      else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="18">
-          
+        <li class="covered" data-hits="1" data-linenumber="18">
+          <span class="hits">1</span>
           
           <code class="ruby">        @url = project_project_files_path</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="19">
-          
+        <li class="covered" data-hits="1" data-linenumber="19">
+          <span class="hits">1</span>
           
           <code class="ruby">        render :new</code>
         </li>
@@ -2053,8 +2053,8 @@
           <code class="ruby">      def params_valid</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="58">
-          
+        <li class="covered" data-hits="1" data-linenumber="58">
+          <span class="hits">1</span>
           
           <code class="ruby">         params.require(:project_file).permit(:file_name, :description, :attachment, :term)</code>
         </li>

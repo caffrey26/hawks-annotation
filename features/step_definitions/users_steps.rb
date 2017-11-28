@@ -263,11 +263,6 @@ Then("I sign out") do
   visit '/'
 end
 
-Then("I upload file") do
-  path = File.expand_path("a.txt")
-  puts File.expand_path("a.txt")
-  puts path
-  attach_file('multipartFile', "C:\\Desktop\\a.txt")
-end
+
 
 
