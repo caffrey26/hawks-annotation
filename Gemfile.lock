@@ -102,6 +102,7 @@ GEM
     cucumber-wire (0.0.1)
     d3-rails (4.10.2)
       railties (>= 3.1)
+    database_cleaner (1.6.2)
     debug_inspector (0.0.3)
     devise (4.3.0)
       bcrypt (~> 3.0)
@@ -114,6 +115,13 @@ GEM
     erubis (2.7.0)
     excon (0.59.0)
     execjs (2.7.0)
+    factory_girl (4.9.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.9.0)
+      factory_girl (~> 4.9.0)
+      railties (>= 3.0.0)
+    faker (1.8.4)
+      i18n (~> 0.5)
     ffi (1.9.18)
     ffi (1.9.18-x86-mingw32)
     figaro (1.1.1)
@@ -295,7 +303,10 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   cucumber-rails
   d3-rails
+  database_cleaner
   devise (~> 4.3)
+  factory_girl_rails
+  faker
   figaro
   fog-aws
   jbuilder (~> 2.0)

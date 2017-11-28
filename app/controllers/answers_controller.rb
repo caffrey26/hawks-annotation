@@ -43,6 +43,15 @@ class AnswersController < ApplicationController
       format.js
     end
   end
+  
+  def remove_ref
+    @question = Question.find(Reference.find(params[:reference_id]).question_id)
+    Reference.find(params[:reference_id]).destroy
+    respond_to do |format|
+      format.js
+    end
+  end
+  
 
   def add_annotation
     @file = ProjectFile.find(params[:file_id])

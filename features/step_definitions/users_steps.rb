@@ -111,7 +111,7 @@ When("I login") do
   visit '/users/sign_up'
   expect(page).to have_content("Password confirmation")
   
-  fill_in("Email", with: 'abh@gmail.com', :match => :prefer_exact)
+  fill_in("Email", with: 'abhi@gmail.com', :match => :prefer_exact)
   fill_in("Password", with: '12345678', :match => :prefer_exact)
   fill_in("Password confirmation", with: '12345678', :match => :prefer_exact)
   click_button("Sign up")
@@ -172,3 +172,102 @@ Then("I click {string}") do |string|
   click_button(string)
 end
 
+When("I click on All Projects") do
+  visit '/projects'
+end
+
+
+
+Then("I click on {string}") do |string|
+  click_button(string)
+end
+
+Then("I create new project title and description second") do
+  fill_in("Project", with: 'somethings', :match => :prefer_exact)
+  fill_in("Description", with: 'this is the description', :match => :prefer_exact)
+end
+
+Then("I click_link {string}") do |string|
+  click_link(string)
+end
+
+Then("I click_button {string}") do |string|
+  click_button(string)
+end
+
+Then("I update values") do
+  fill_in("Project", with: 'something', :match => :prefer_exact)
+  fill_in("Description", with: 'this is the description', :match => :prefer_exact)
+end
+
+Then("I go to files page") do
+  visit '/projects/1/project_files'
+end
+
+Then("I go to questions page") do
+  visit '/projects/1/questions'
+end
+
+Then("I go to add new user page") do
+  visit '/projects/1/show_and_select_user'
+end
+
+Then("I go to Answers page") do
+  visit '/projects/1/answers'
+end
+
+Then("I go to downloads page") do
+  visit '/projects/1/downloads'
+end
+
+Then("I should go to add a new file page") do
+  visit '/projects/1/project_files/new'
+end
+
+Then("I should fill in values") do
+  fill_in("Name of the File", with: 'something', :match => :prefer_exact)
+  
+end
+
+Then("I go to add a new question page") do
+  visit 'questions/new'
+end
+
+Then("I give input question") do
+  fill_in("Question Title", with: 'q1', :match => :prefer_exact)
+end
+
+Then("I choose {string}") do |string|
+  choose(string)
+end
+
+Then("I go to copy question page") do
+  visit '/projects/1/questions/1/copy_question'
+end
+
+Then("I go to Add child question page") do
+  visit '/projects/1/questions/new?parent_id=1'
+end
+Then("I add values to child") do
+  fill_in("Question Title", with: 'cq1', :match => :prefer_exact)
+end
+
+
+
+Then("I attach {string}") do |string|
+  attach_file('string', File.absolute_path('./features/users/as.txt'))
+ # page.attach_file "string", ['/hawks_annotation/features/users/as.txt']
+end
+
+Then("I sign out") do
+  visit '/'
+end
+
+Then("I go to options page") do
+  visit '/projects/7/questions/10/options/new'
+end
+
+
+Then("I fill details") do
+  fill_in("Option", with: 'option1', :match => :prefer_exact)
+end

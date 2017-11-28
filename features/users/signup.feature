@@ -4,6 +4,7 @@ Feature: New user has to be created
   I should give credentials to create account
   
  Scenario: New user should be created
+        
         When I go to "Sign up" page
         
         When I fill in  test values
