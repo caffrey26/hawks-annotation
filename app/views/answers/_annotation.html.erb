@@ -1,0 +1,12 @@
+<%= simple_form_for Annotation.new, url: add_annotation_project_answers_path(question_id: @question.id, file_id: @file.id ),:method => :post,:remote => true do |a| %>
+    <%= a.text_area :text, id:"annotation_text" %>
+    <%= a.button :submit, "Save Text", class: "btn btn-primary btn-xs" %>
+<% end %>
+<% annotations = Annotation.where(question_id: @question.id, file_id: @file.id) %>
+<% if annotations.length > 0 %>
+    <% annotations.each do|a| %>
+        <ul>
+          <li><%= a.text %></li>
+        </ul>
+    <% end %>
+<% end %>
