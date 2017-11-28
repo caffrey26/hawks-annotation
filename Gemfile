@@ -47,8 +47,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem "rspec"
   gem "tzinfo-data"
+  gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
   # gem 'bcrypt', platforms: :ruby
-  gem 'bcrypt', '3.1.11', platforms: [:ruby, :x64_mingw]
+  # gem 'bcrypt', '3.1.11', platforms: [:ruby, :x64_mingw]
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'sqlite3'
