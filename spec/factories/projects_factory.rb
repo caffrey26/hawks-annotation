@@ -5,6 +5,12 @@ FactoryGirl.define do
     password_confirmation "password"
   end
   
+   factory :user1, parent: :user do
+    email "user@abcd.com"
+    password "password"
+    password_confirmation "password"
+  end
+  
   factory :project do
     title { Faker::Name.title }
     description "project description"
