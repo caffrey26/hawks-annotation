@@ -75,8 +75,11 @@ class ProjectsController < ApplicationController
   end
   
   def destroy
+     
       Project.destroy(@project)
       redirect_to projects_path
+     
+    
   end
   
   def find_project
