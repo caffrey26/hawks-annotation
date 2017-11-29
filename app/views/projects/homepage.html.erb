@@ -10,6 +10,72 @@
 </ul>
 </h4>
 </div>
+<div class="row">
+  <div class="col-sm-6 " >
+	<div class="thumbnail tile tile-medium tile-green">
+	   <div id="outer" >  
+	        <h4>Projects you have created<h4>
+	           <div id="inner"><h2><%=@adminprojects_count%></h2>
+	          </div>
+	       </div>
+                <!--<i class="fa fa-3x fa-home"></i>-->
+		<!--</a>-->
+    </div>
+</div>
+<div class="col-sm-6 ">
+	<div class="thumbnail tile tile-medium tile-orange">
+	    <div id="outer" >  
+	     <h4>Projects you contribute to<h4>
+	           <div id="inner"><h2><%=@otherprojects_count%></h2>
+	      </div>
+	   </div>
+	       <!--<i class="fa fa-3x fa-rss-square"></i>-->
+		<!--</a>-->
+	</div>
+</div>
+</div>
+<div class="row">
+  <div class="col-sm-6 " >
+	<div class="thumbnail tile tile-medium tile-green">
+	   <div id="outer" >  
+	        <h4>Projects files uploaded in your projects<h4>
+	           <div id="inner"><h2><%=@adminfiles_count%></h2>
+	          </div>
+	       </div>
+                <!--<i class="fa fa-3x fa-home"></i>-->
+		<!--</a>-->
+    </div>
+</div>
+<div class="col-sm-6 ">
+	<div class="thumbnail tile tile-medium tile-orange">
+	    <div id="outer" >  
+	     <h4>Total answers you have provided<h4>
+	           <div id="inner"><h2><%=@answers_count%></h2>
+	      </div>
+	   </div>
+	       <!--<i class="fa fa-3x fa-rss-square"></i>-->
+		<!--</a>-->
+	</div>
+</div>
+</div>
+<!--
+<!--<div class="col-sm-6 col-md-3">-->
+<!--	<div class="thumbnail tile tile-medium tile-green">-->
+<!--        <a href=<%='#' %> class="fa-links">-->
+<!--            <h1>All Fixtures</h1>-->
+<!--                <i class="fa fa-3x fa-home"></i>-->
+<!--		</a>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div class="col-sm-6 col-md-3">-->
+<!--	<div class="thumbnail tile tile-medium tile-orange">-->
+<!--        <a href= <%= '#' %> class="fa-links">-->
+<!--            <h1>Standings</h1>-->
+<!--                <i class="fa fa-3x fa-rss-square"></i>-->
+<!--		</a>-->
+<!--	</div>-->
+<!--</div>-->
+    
 <% else %>
 
   <h2>Welcome to Hawks Annotation! Sign in or sign up to continue</h2>

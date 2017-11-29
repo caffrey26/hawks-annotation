@@ -8,7 +8,6 @@
       </ul>
     </div>
 <% end %>
-  
 <%= form_for :question, :url => add_question_path , :method => :POST do |f| %>
   <%= collection_select(:project, :project_ids, @user_projects, :id, :title,{:prompt => "Please Select Projects:"}, {:multiple => true}) %>
   <%= f.button :submit, class: "btn btn-primary"%>

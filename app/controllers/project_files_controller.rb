@@ -13,6 +13,7 @@ class ProjectFilesController < ApplicationController
     def create
       @project_file = Project.find(params[:project_id]).project_files.build(params_valid) 
       if(@project_file.save)
+          flash[:success] = "Project file successfully created!"
           redirect_to project_project_files_path
       else
         @url = project_project_files_path
@@ -34,6 +35,7 @@ class ProjectFilesController < ApplicationController
 
     def update
       if @project_file.update(params_valid)
+          flash[:success] = "Project file updated!"
           redirect_to project_project_file_path(id: @project_file.id)
       else
           @url = project_project_file_path

@@ -48,9 +48,11 @@ class QuestionsController < ApplicationController
             render :new
           end
         end
-        if params[:question][:parent_id].nil? then 
+        if params[:question][:parent_id].empty? then 
+          flash[:success] = "Project question successfully created!"
           redirect_to project_questions_path
         else
+          flash[:success] = "Child question successfully created!"
           redirect_to project_question_path(id: params[:question][:parent_id])
         end
       else
@@ -74,6 +76,7 @@ class QuestionsController < ApplicationController
 
     def update
       if @question.update(params_valid)
+          flash[:success] = "Project question updated!"
           redirect_to project_question_path(id: @question.id)
       else
           @url = project_question_path
@@ -139,9 +142,13 @@ class QuestionsController < ApplicationController
     end
     
     def copy_question
-      
       @user_projects = current_user.projects.where.not(id: params[:project_id])
-    
+      if @user_projects.empty?  
+        flash[:notice] = "No other project to copy."
+        @question = params[:id]
+        redirect_to project_question_path(id: params[:id])
+      end
+
     end
     
     def destroy

@@ -52,6 +52,7 @@ class ProjectsController < ApplicationController
      @project = current_user.projects.create(params_valid)
      if @project.save
          @project.update(admin_id: current_user.id)
+         flash[:success] = "Project successfully created!"
          redirect_to projects_path
      else
          render 'new'
@@ -65,6 +66,7 @@ class ProjectsController < ApplicationController
   
   def update
       if @project.update(params_valid)
+          flash[:success] = "Project updated!"
           redirect_to project_path(@project)
       else
           render 'edit'
@@ -87,6 +89,10 @@ class ProjectsController < ApplicationController
   
   def homepage
     @user = current_user
+    @adminprojects_count = Project.where(admin_id: current_user.id).order("created_at DESC").count
+    @otherprojects_count = current_user.projects.where.not(admin_id: current_user.id).order("created_at DESC").count
+    @adminfiles_count = ProjectFile.where(project_id: Project.where(admin_id: current_user.id)).count
+    @answers_count = Answer.where(user_id: current_user.id).count
   end
   
   private

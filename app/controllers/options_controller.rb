@@ -11,7 +11,7 @@ class OptionsController < ApplicationController
                               options.
                                 build(params_valid) 
       if(@option.save)
-          flash[:success] = "Option added!"
+          flash[:success] = "Option successfully created!"
           redirect_to project_question_path(id: params[:question_id])
       else
         @url = project_question_options_path

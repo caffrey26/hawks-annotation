@@ -8,24 +8,28 @@
       </ul>
     </div>
 <% end %>
+
+<div class="row">
+  <div class="col-md-4">
+
 <%= simple_form_for @question, :url => @url do |f| %>
-  <!--<%= f.label :parent_id, label: @parent_id %>-->
   <%= f.input :parent_id,:as => :hidden, :input_html => { :value => @parent_id }%>
+<div class="form-group">
   <%= f.input :title, label: "Question Title", :required => true %>
-  <%= f.text_area :description%> </br>
-  <!--<%= f.input :title, label: "Question Title" %>-->
-  <!--<%= select_tag "type", "<option>Enter Text</option><option>Select from options</option>".html_safe %>-->
-  <!--<%= radio_button_tag( "question[q_type]", "T") %>-->
-  <!--<%= label_tag(:type_text, "Accepts Text as answer") %>-->
-  <!--<%= radio_button_tag( "question[q_type]", "O") %>-->
-  <!--<%= label_tag(:type_option, "Accepts Options as answer") %>-->
-  <!--<%= f.input :description, label: "Description" %>-->
-  <!--<%= f.text_area :description%> </br>-->
-  
-  <%= f.collection_radio_buttons( :q_type, [['T', 'Text as Answer'] ,['O', 'Create Custom Options'], ['TF','Template: True/False'], ['YN','Template: Yes/No/Maybe']], :first, :last ) do |b| %>
-  <%=  b.label { b.radio_button + "   " + b.text } %> <br>
+</div>
+<div class="form-group">
+<%= f.input :description, class: "control-label"  %>
+</div>
+
+<div class="radio">
+    <%= f.collection_radio_buttons( :q_type, [['T', 'Text-based free-form Answer'] ,['O', 'Create Custom Options'], ['TF','Option Template: True/False'], ['YN','Option Template: Yes/No/Maybe']], :first, :last ) do |b| %>
+  <%=  b.label { b.radio_button + " " + b.text } %> <br>
   <% end %> 
+</div>
 
   </br>
+<div class="form-group">
   <%= f.button :submit, class: "btn btn-primary"%> 
+</div>
+
 <% end %>

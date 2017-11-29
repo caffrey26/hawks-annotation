@@ -8,9 +8,21 @@
       </ul>
     </div>
 <% end %>
+<div class="row">
+  <div class="col-md-4">
+
 <%= simple_form_for @project_file, :url => @url do |f| %>
-  <%= f.input :file_name, label: "Name of the File" %>
-  <%= f.text_area :description%> </br>
-  <%= f.input :attachment, as: :file %> </br>
-  <%= f.button :submit, class: "btn btn-primary"%>
+<div class="form-group">
+<%= f.input :file_name, label: "Name of the File" %>
+</div>
+<div class="form-group">
+<%= f.input :description, class: "control-label"  %>
+</div>
+<div class="form-group">
+<%= f.input :attachment, as: :file %> </br>
+</div>
+<div class="form-group">
+<%= f.button :submit, class: "btn btn-primary"%>
+</div>
+
 <% end %>

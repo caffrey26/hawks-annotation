@@ -30,6 +30,10 @@
 
     <body>
       <ol>
+<% if @project_files.empty? %>
+  <h4> No files created yet! </h4>
+  <% else %>
+
   <% @project_files.each do |p| %>
 
       <div class="container">
@@ -62,6 +66,7 @@
       </div>
       
   </br>
+    <% end %>
     <% end %>
     </ol>
     </body>

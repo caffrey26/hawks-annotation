@@ -26,7 +26,7 @@
   <div class="container">
   <div class="row">
     <div class="col-md-5">
-  <h3> Questions for the project <%= link_to Project.find(params[:project_id]).title, project_path(id: params[:project_id]) %> </h3>
+  <h3> Questions for  <%= link_to Project.find(params[:project_id]).title, project_path(id: params[:project_id]) %> </h3>
   </div>
   
   </div>
@@ -36,15 +36,21 @@
 <body>
   
 
+
   <div class="container">
     <div class="row">
       <ol>
+        <% if @questions.empty? %>
+          <h4> No questions created yet! </h4>
+        <% else %>
         <% @questions.each do |p| %>
             <li><%= link_to p.title, project_question_path(id: p.id) %></li>
         <% end %>
       </ol>
     </div>
   </div>
+  
+  <% end %>
 </body>
 
 </html>
