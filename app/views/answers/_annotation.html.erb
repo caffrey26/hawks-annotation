@@ -6,7 +6,8 @@
 <% if annotations.length > 0 %>
     <% annotations.each do|a| %>
         <ul>
-          <li><%= a.text %></li>
+          <li><%= a.text %>
+          <%= link_to "Remove",remove_annotation_project_answers_path(annotation_id: a.id), remote: true %></li>
         </ul>
     <% end %>
 <% end %>

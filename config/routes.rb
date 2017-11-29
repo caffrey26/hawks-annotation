@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :answers do
       collection do
         get :display_file, :add_ref , :remove_ref
-        post :add_annotation
+        post :add_annotation, :remove_annotation
       end
     end
     resources :project_files
