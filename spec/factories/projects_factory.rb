@@ -16,7 +16,10 @@ FactoryGirl.define do
     description "project description"
     
   end
-
+  factory :question do
+    title { Faker::Name.title }
+    description "question description"
+  end
   factory :service do
     title { Faker::Name.title }
     description "project description1"
