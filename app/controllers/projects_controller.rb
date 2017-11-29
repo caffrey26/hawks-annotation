@@ -92,10 +92,12 @@ class ProjectsController < ApplicationController
   
   def homepage
     @user = current_user
-    @adminprojects_count = Project.where(admin_id: current_user.id).order("created_at DESC").count
-    @otherprojects_count = current_user.projects.where.not(admin_id: current_user.id).order("created_at DESC").count
-    @adminfiles_count = ProjectFile.where(project_id: Project.where(admin_id: current_user.id)).count
-    @answers_count = Answer.where(user_id: current_user.id).count
+    if current_user.present? then
+      @adminprojects_count = Project.where(admin_id: current_user.id).order("created_at DESC").count
+      @otherprojects_count = current_user.projects.where.not(admin_id: current_user.id).order("created_at DESC").count
+      @adminfiles_count = ProjectFile.where(project_id: Project.where(admin_id: current_user.id)).count
+      @answers_count = Answer.where(user_id: current_user.id).count
+    end
   end
   
   private
