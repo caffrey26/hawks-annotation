@@ -1,5 +1,9 @@
 class DownloadsController < ApplicationController
   def index
+     @latest_answers = if Answer.group(:question_id).count.empty? then 0 else Answer.group(:question_id).count end
+     @all_answers = Answer.all.count
+     @own_answers = Answer.where(user_id: current_user.id).count
+
     if params[:type] == "latest" then
       @answers = Answer.group(:question_id)
     end
@@ -11,9 +15,18 @@ class DownloadsController < ApplicationController
     if params[:type] == "own" then
       @answers = Answer.where(user_id: current_user.id)
     end
+    if params[:type].nil?
+      then
+    else 
+      if @answers.empty? then 
+        flash[:error] = "No answers to download!"
+        return redirect_to project_downloads_path(project_id: params[:project_id], format: "html")
+      end
+    end
+      
     respond_to do |format|
       format.html
-      format.csv { send_data @answers.to_csv, filename: "answers-#{Date.today}.csv" }
+      format.csv { send_data @answers.to_csv , filename: "answers-#{Date.today}.csv" }
     end
   end
 end

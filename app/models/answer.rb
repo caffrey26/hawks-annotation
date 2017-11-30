@@ -30,8 +30,8 @@ class Answer < ActiveRecord::Base
            all.each do |answer|
             #   csv << answer.attributes.values_at(*attributes)
             csv <<  [
-                    answer.question.title, 
-                    answer.question.project.title,
+                    if answer.question.nil? then else answer.question.title end, 
+                    if answer.question.nil?  then else if answer.question.project.nil? then else answer.question.project.title end end,
                     User.find(answer.user_id).email,
                     if answer.question.q_type == 'T' then answer.answer_text else answer.question.options.find(answer.answer_text).option_text end,
                     self.stitch_references(answer.question_id),

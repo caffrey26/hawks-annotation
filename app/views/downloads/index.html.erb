@@ -1,7 +1,53 @@
-<ul>
-  <h4>
-  <li><%= link_to "Download Latest Answers",  project_downloads_path(project_id: params[:project_id], format: "csv",:type => "latest") %></li>
-  <li><%= link_to "Download All Answers",  project_downloads_path(project_id: params[:project_id], format: "csv",:type => "all")%></li>
-  <li><%= link_to "Download Own Answers",  project_downloads_path(project_id: params[:project_id], format: "csv",:type => "own")%></li>
-  </h4>
-</ul>
+<!DOCTYPE html>
+<html>
+
+</head>
+<body>
+<div class="row">
+  <div class="col-sm-4 " >
+	<div class="thumbnail tile tile-medium tile-green">
+	   <div id="outer" >  
+	        <h4>Download Latest Answers<h4>
+	   	   <a href=<%= project_downloads_path(project_id: params[:project_id], format: "csv",:type => "latest") %> class="fa-links">
+
+	           <div id="inner"><h2><%=@latest_answers%> records</h2>
+	           
+	         </a>
+	          </div>
+	       </div>
+                <!--<i class="fa fa-3x fa-home"></i>-->
+		<!--</a>-->
+    </div>
+</div>
+<div class="col-sm-4 ">
+	<div class="thumbnail tile tile-medium tile-orange">
+	    <div id="outer" >  
+	     <h4>Download All Answers<h4>
+	       <a href=<%= project_downloads_path(project_id: params[:project_id], format: "csv",:type => "all")%> class="fa-links">
+
+	           <div id="inner"><h2><%= @all_answers %> records</h2>
+	           </a>
+	      </div>
+	   </div>
+	       <!--<i class="fa fa-3x fa-rss-square"></i>-->
+		<!--</a>-->
+	</div>
+</div>
+<div class="col-sm-4 ">
+	<div class="thumbnail tile tile-medium tile-orange">
+	    <div id="outer" >  
+	     <h4>Download Own Answers<h4>
+	       <a href=<%=project_downloads_path(project_id: params[:project_id], format: "csv",:type => "own") %> class="fa-links">
+
+	           <div id="inner"><h2><%= @own_answers %> records</h2>
+	           </a>
+	      </div>
+	   </div>
+	       <!--<i class="fa fa-3x fa-rss-square"></i>-->
+		<!--</a>-->
+	</div>
+</div>
+
+</div>
+</body>
+</html>
