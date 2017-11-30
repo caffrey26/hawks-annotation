@@ -1,6 +1,6 @@
 class DownloadsController < ApplicationController
   def index
-     @latest_answers = if Answer.group(:question_id).count.empty? then 0 else Answer.group(:question_id).count end
+     @latest_answers = if Answer.group(:question_id).count.empty? then 0 else Answer.group(:question_id).pluck(:id).count end
      @all_answers = Answer.all.count
      @own_answers = Answer.where(user_id: current_user.id).count
 
