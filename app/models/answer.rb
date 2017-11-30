@@ -6,11 +6,12 @@ class Answer < ActiveRecord::Base
 
     def self.stitch_annotations(question_id, file_id)
       annotations_combined = Annotation.where(file_id: file_id).where(question_id: question_id).pluck(:text).join(' ~---~ ')
-      if annotations_combined == ""
-        annotations_combined
-      else
-        ProjectFile.find(file_id).file_name + ":{" + annotations_combined + "}"
-      end
+      # if annotations_combined == ""
+      #   ProjectFile.find(file_id).file_name
+      # else
+      #   ProjectFile.find(file_id).file_name + ":{" + annotations_combined + "}"
+      # end
+      ProjectFile.find(file_id).file_name + ":{" + annotations_combined + "}"
     end
 
     def self.stitch_references(question_id)

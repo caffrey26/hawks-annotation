@@ -18,3 +18,9 @@ display_file_project_answers_path(file_id: f.id), remote: true
 
 
 //$('#file_preview').html("<%=escape_javascript(render :partial=>"display_file")%>");
+
+
+##device forgot passsword found in device/shared/_links
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+<% end -%>

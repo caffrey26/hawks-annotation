@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="666fb1f2-0459-48aa-a3d8-0c4eebbcc1b3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/downloads_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/downloads_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/m" afterPath="$PROJECT_DIR$/app/m" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/answer.rb" afterPath="$PROJECT_DIR$/app/models/answer.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/devise/shared/_links.html.erb" afterPath="$PROJECT_DIR$/app/views/devise/shared/_links.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/project_files/_form_project_files.html.erb" afterPath="$PROJECT_DIR$/app/views/project_files/_form_project_files.html.erb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -31,31 +34,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/downloads/index.html.erb">
+      <file leaf-file-name="project_files_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/project_files_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+            <state relative-caret-position="-408">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="downloads_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/downloads_controller.rb">
+      <file leaf-file-name="_form_project_files.html.erb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/project_files/_form_project_files.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="answer.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/models/answer.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="11" column="77" lean-forward="true" selection-start-line="11" selection-start-column="77" selection-end-line="11" selection-end-column="77" />
+            <state relative-caret-position="493">
+              <caret line="29" column="6" lean-forward="true" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -114,7 +107,6 @@
         <option value="$PROJECT_DIR$/app/uploaders/attachment_uploader.rb" />
         <option value="$PROJECT_DIR$/config/initializers/carrierwave.rb" />
         <option value="$PROJECT_DIR$/app/views/answers/index.js.erb" />
-        <option value="$PROJECT_DIR$/app/m" />
         <option value="$PROJECT_DIR$/app/views/answers/display_file.js.erb" />
         <option value="$PROJECT_DIR$/app/controllers/answers_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/answers/index.html.erb" />
@@ -122,6 +114,10 @@
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/controllers/downloads_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/answer.rb" />
+        <option value="$PROJECT_DIR$/app/views/devise/shared/_links.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/user.rb" />
+        <option value="$PROJECT_DIR$/app/m" />
+        <option value="$PROJECT_DIR$/app/views/project_files/_form_project_files.html.erb" />
       </list>
     </option>
   </component>
@@ -180,12 +176,6 @@
               <item name="hawks_annotation" type="b2602c69:ProjectViewProjectNode" />
               <item name="hawks_annotation" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hawks_annotation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hawks_annotation" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="uploaders" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -199,25 +189,12 @@
               <item name="hawks_annotation" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="answers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hawks_annotation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hawks_annotation" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="downloads" type="462c0819:PsiDirectoryNode" />
+              <item name="project_files" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hawks_annotation" type="b2602c69:ProjectViewProjectNode" />
               <item name="hawks_annotation" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hawks_annotation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hawks_annotation" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="initializers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -360,12 +337,12 @@
       <workItem from="1511664488855" duration="16712000" />
       <workItem from="1511737791538" duration="3032000" />
       <workItem from="1511803483650" duration="8671000" />
-      <workItem from="1511996350407" duration="12849000" />
+      <workItem from="1511996350407" duration="16476000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143513000" />
+    <option name="totallyTimeSpent" value="147140000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -411,36 +388,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/migrate/20171119025113_remove_file_id_from_answer.rb" />
-    <entry file="file://$PROJECT_DIR$/db/migrate/20171119030221_create_references.rb" />
-    <entry file="file://$PROJECT_DIR$/db/migrate/20171119025315_remove_file_id_from_answers.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20171118235640_add_file_id_to_answer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="57" lean-forward="false" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/annotation_viewer/viewer/web/viewer.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="1423" column="3" lean-forward="false" selection-start-line="1423" selection-start-column="3" selection-end-line="1423" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/annotation.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/questions/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
@@ -661,14 +608,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="85" lean-forward="true" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/answers/display_file.js.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -725,10 +664,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/downloads/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/devise/mailer/reset_password_instructions.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/devise/shared/_links.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/devise/sessions/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/answer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="13" column="77" lean-forward="false" selection-start-line="13" selection-start-column="77" selection-end-line="13" selection-end-column="77" />
           <folding />
         </state>
       </provider>
@@ -741,10 +720,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/answer.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/downloads/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" column="77" lean-forward="true" selection-start-line="11" selection-start-column="77" selection-end-line="11" selection-end-column="77" />
+        <state relative-caret-position="85">
+          <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/project_files_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/project_files/_form_project_files.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="6" lean-forward="true" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
           <folding />
         </state>
       </provider>

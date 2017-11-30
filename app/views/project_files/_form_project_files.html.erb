@@ -19,10 +19,12 @@
 <%= f.input :description, class: "control-label"  %>
 </div>
 <div class="form-group">
-<%= f.input :attachment, as: :file %> </br>
+<%= f.input :attachment, as: :file, :input_html => { :multiple => true }, name: "post_attachments[files][]" %> </br>
 </div>
 <div class="form-group">
 <%= f.button :submit, class: "btn btn-primary"%>
 </div>
 
 <% end %>
+</div>
+</div>
