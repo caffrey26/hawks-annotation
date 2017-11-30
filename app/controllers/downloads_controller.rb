@@ -4,6 +4,8 @@ class DownloadsController < ApplicationController
       @answers = Answer.group(:question_id)
     end
     if params[:type] == "all" then
+      # answers = Answer.joins("JOIN OPTIONS, QUESTIONS on questions.id = options.question_id and questions.id=answers.question_id and questions.q_type ='O' and answers.answer_text = options.id and answers.project_id = " + params[:project_id]).distinct.pluck("questions.title", "options.option_text")
+      # answers = answers + Answer.joins("JOIN QUESTIONS on questions.id=answers.question_id and questions.q_type = 'T' and answers.project_id = " + params[:project_id]).distinct.pluck("questions.title", "answers.answer_text")
       @answers = Answer.all
     end
     if params[:type] == "own" then
