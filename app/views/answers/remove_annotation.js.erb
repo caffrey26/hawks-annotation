@@ -1,2 +1,2 @@
-$('#references_list_'+'<%= @question.id.to_s %>').html("<%=escape_javascript(render :partial=>"references")%>");
+$('#ref-annotation-q-'+'<%= @question.id.to_s + '-' + @file.id.to_s %>').html("<%=escape_javascript(render :partial=>"annotation")%>");
 

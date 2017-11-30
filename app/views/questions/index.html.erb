@@ -44,7 +44,7 @@
           <h4> No questions created yet! </h4>
         <% else %>
         <% @questions.each do |p| %>
-            <li><%= link_to p.title, project_question_path(id: p.id) %></li>
+            <h4><li><%= link_to p.title, project_question_path(id: p.id) %></li></h4>
         <% end %>
       </ol>
     </div>
