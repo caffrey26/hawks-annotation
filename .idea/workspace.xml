@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="666fb1f2-0459-48aa-a3d8-0c4eebbcc1b3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/answers/_display_file.html.erb" afterPath="$PROJECT_DIR$/app/views/answers/_display_file.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/answers/index.html.erb" afterPath="$PROJECT_DIR$/app/views/answers/index.html.erb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -53,8 +54,8 @@
       <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/answers/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="38" column="16" lean-forward="true" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+            <state relative-caret-position="266">
+              <caret line="31" column="64" lean-forward="false" selection-start-line="31" selection-start-column="64" selection-end-line="31" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -83,8 +84,8 @@
       <file leaf-file-name="_display_file.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/answers/_display_file.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="68">
+              <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -157,9 +158,9 @@
         <option value="$PROJECT_DIR$/app/views/answers/index.js.erb" />
         <option value="$PROJECT_DIR$/app/m" />
         <option value="$PROJECT_DIR$/app/views/answers/display_file.js.erb" />
-        <option value="$PROJECT_DIR$/app/views/answers/_display_file.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/answers/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/answers_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/answers/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/answers/_display_file.html.erb" />
         <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
@@ -399,12 +400,12 @@
       <workItem from="1511664488855" duration="16712000" />
       <workItem from="1511737791538" duration="3032000" />
       <workItem from="1511803483650" duration="8671000" />
-      <workItem from="1511996350407" duration="5440000" />
+      <workItem from="1511996350407" duration="6789000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136104000" />
+    <option name="totallyTimeSpent" value="137453000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -738,22 +739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/projects_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="135" lean-forward="true" selection-start-line="23" selection-start-column="120" selection-end-line="23" selection-end-column="135" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/answers/_display_file.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/answers/display_file.js.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -762,18 +747,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/answers/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="38" column="16" lean-forward="true" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/answers/_questions.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
           <caret line="35" column="79" lean-forward="false" selection-start-line="35" selection-start-column="69" selection-end-line="35" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/projects_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="135" lean-forward="true" selection-start-line="23" selection-start-column="120" selection-end-line="23" selection-end-column="135" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/answers/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="31" column="64" lean-forward="false" selection-start-line="31" selection-start-column="64" selection-end-line="31" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/answers/_display_file.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
           <folding />
         </state>
       </provider>
