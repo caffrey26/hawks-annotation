@@ -77,5 +77,5 @@ group :production do
 end
 
 group :test do
-  gem 'database_cleaner'
+  # gem 'database_cleaner'
 end

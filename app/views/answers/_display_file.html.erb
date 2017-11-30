@@ -8,7 +8,7 @@
 
     <ul class="dropdown-menu" aria-labelledby="filemenu-selector">
       <% @files.each do |f| %>
-          <li><%= link_to f.file_name, display_file_project_answers_path(file_id: f.id), remote: true %></li>
+          <li><%= link_to f.file_name,"#", onclick: "file_switch('"+"file-switch-"+f.id.to_s+ "');", id: "file-switch-"+f.id.to_s, data: {attachment_url: f.attachment_url, file_name: f.file_name, file_id: f.id.to_s}, remote: true %></li>
       <% end %>
     </ul>
   </div>
@@ -18,7 +18,7 @@
     <% if (@file.attachment_url =~ /^.+\.([pP][dD][fF])$/).nil? %>
         <iframe src = <%= @file.attachment_url  %> ; width="800" height="550" id="content_viewer" enable-annotation></iframe>
     <% else %>
-        <iframe src= "<%=  "/annotation_viewer/viewer/web/viewer.html?file=" + @file.attachment_url%>" width="800" height="550" id="pdf_viewer"></iframe>
+        <iframe src= "<%=  "/annotation_viewer/viewer/web/viewer.html?file=" + @file.attachment_url%>" width="800" height="550" id="content_viewer"></iframe>
     <% end %>
   </div>
 

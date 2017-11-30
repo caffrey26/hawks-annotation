@@ -13,3 +13,8 @@
 
 
 
+display_file_project_answers_path(file_id: f.id), remote: true
+
+
+
+//$('#file_preview').html("<%=escape_javascript(render :partial=>"display_file")%>");

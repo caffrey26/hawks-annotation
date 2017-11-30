@@ -17,6 +17,7 @@
 </div>
 
 <script>
+
     function add_ref_js(question_id, answer_id, user_id){
         var file_id = $('[id^=current_file]').attr("selected-file");
         console.log("/projects/:project_id/answers/add_ref/?question_id="+question_id+"&answer_id="+answer_id+"&user_id="+user_id+"file_id="+file_id);
@@ -25,10 +26,20 @@
         });
     };
 
+    function file_switch(id){
+        var file = $('#'+id);
+        var url = file.attr("data-attachment-url");
+        $('#current_file').html(file.attr("data-file-name")+ '<span class="glyphicon glyphicon-chevron-down"></span><span class="sr-only"></span>');
+        $('#current_file').attr("selected-file", file.attr("data-file-id"));
 
-    //    $(document).ajaxComplete(function( event,request, settings ) {
-//        $("#success_message").fadeIn().style("visibility", "visible").next().delay(500).fadeOut().style("visibility", "hidden");
-//    });
+        var arr = url.split('.');
+        if (arr[arr.length - 1] === 'pdf') {
+            url = "/annotation_viewer/viewer/web/viewer.html?file=" + url;
+            $("#content_viewer").attr("src", url);
+        } else {
+            $("#content_viewer").attr("src", url);
+        }
+    };
 
 </script>
 
