@@ -1,3 +1,4 @@
+<div id="ref-annotation-q-<%= @question.id.to_s + "-" + @file.id.to_s %>" >
 <%= simple_form_for Annotation.new, url: add_annotation_project_answers_path(question_id: @question.id, file_id: @file.id ),:method => :post,:remote => true do |a| %>
     <%= a.text_area :text, id:"annotation_text" %>
     <%= a.button :submit, "Save Text", class: "btn btn-primary btn-xs" %>
@@ -7,7 +8,8 @@
     <% annotations.each do|a| %>
         <ul>
           <li><%= a.text %>
-          <%= link_to "Remove",remove_annotation_project_answers_path(annotation_id: a.id), remote: true %></li>
+          <%= link_to "Remove",remove_annotation_project_answers_path(annotation_id: a.id, question_id: @question.id, file_id: @file.id ), remote: true %></li>
         </ul>
     <% end %>
 <% end %>
+</div>
