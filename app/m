@@ -24,3 +24,14 @@ display_file_project_answers_path(file_id: f.id), remote: true
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
   <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
 <% end -%>
+
+
+
+
+
+<%=link_to "+ Batch upload", new_multile_files_project_project_files_path(project_id: params[:project_id]), class: "btn btn-primary" %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+resources :project_files do
+      collection do
+        get :new_multile_files
+      end
+    end

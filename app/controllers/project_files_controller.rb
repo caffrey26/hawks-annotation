@@ -2,15 +2,24 @@ class ProjectFilesController < ApplicationController
     before_action :find_project_file, only:[:show, :update, :edit, :destroy]
     
     def new
-        @project_file = ProjectFile.new(project_id: params[:project_id])
-        @url = project_project_files_path
-
+      @project_file = ProjectFile.new(project_id: params[:project_id])
+      @url = project_project_files_path
     end
     
     def show
     end
+
+    def new_multile_files
+      @project_file = ProjectFile.new(project_id: params[:project_id])
+      puts params[:file_name]
+    end
+
+    def create_multile_files
+      puts params[:file_name]
+    end
     
     def create
+      puts params_valid
       @project_file = Project.find(params[:project_id]).project_files.build(params_valid) 
       if(@project_file.save)
           flash[:success] = "Project file successfully created!"

@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-4">
+
+    <%= simple_form_for @project_file, url: new_multile_files_project_project_files_path do |f| %>
+        <div class="form-group">
+          <%= f.input :file_name, label: "Name of the File" %>
+        </div>
+        <div class="form-group">
+          <%= f.input :description, class: "control-label"  %>
+        </div>
+        <div class="form-group">
+          <%= f.input :attachment, as: :file, :input_html => { :multiple => true } %> </br>
+        </div>
+        <div class="form-group">
+          <%= f.button :submit, class: "btn btn-primary"%>
+        </div>
+
+    <% end %>
+  </div>
+</div>
