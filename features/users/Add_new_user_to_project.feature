@@ -4,10 +4,19 @@ Feature: New project has to be created
   I should click on Create New Project
   
  Scenario: New project should be created
-   
+        
+        
+        
+        
         When I login 
         #Then I should see "Signed in successfully."
+        Then I sign out
+        When I go to "Sign up" page
         
+        When I fill in  test values again
+      
+        Then click "Sign up"
+        #Then I sign out
         When I'm in  create projects page
         Then I should see "All Projects"
         Then I press on the new projects "CreateNewProject"

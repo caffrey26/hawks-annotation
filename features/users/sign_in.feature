@@ -6,6 +6,8 @@ Feature: sign_in
       When I go to the homepage
       Then I should see the sign in link
       
+      When I click on All Projects
+      
     # Scenario: User is not signed up
     #   When I do not exist as a user
     #   Then I see an invalid login message

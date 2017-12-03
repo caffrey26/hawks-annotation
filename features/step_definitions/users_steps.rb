@@ -84,6 +84,14 @@ When("I fill in  test values") do
  
 end
 
+When("I fill in  test values again") do
+  
+  fill_in("Email", with: 'abhi2@gmail.com', :match => :prefer_exact)
+  fill_in("Password", with: '12345678', :match => :prefer_exact)
+  fill_in("Password confirmation", with: '12345678', :match => :prefer_exact)
+  
+end
+
 Then("click {string}") do |string|
   click_button(string)
     
@@ -109,7 +117,7 @@ end
 
 When("I login") do
   visit '/users/sign_up'
-  expect(page).to have_content("Password confirmation")
+  #expect(page).to have_content("Password confirmation")
   
   fill_in("Email", with: 'abhi@gmail.com', :match => :prefer_exact)
   fill_in("Password", with: '12345678', :match => :prefer_exact)
@@ -158,14 +166,6 @@ end
 
 When("I press {string}") do |string|
   click_link(string)
-end
-
-Then("I should go to Forgot password page") do
-  visit '/users/password/new'
-end
-
-Then("I should give Mail ID to get reset password") do
-  fill_in("Email", with: 'test@test.com', :match => :prefer_exact)
 end
 
 Then("I click {string}") do |string|
@@ -252,7 +252,25 @@ Then("I add values to child") do
   fill_in("Question Title", with: 'cq1', :match => :prefer_exact)
 end
 
+Then("I add values to child page") do
+  fill_in("Question Title", with: 'cq11', :match => :prefer_exact)
+end
 
+Then("I give input question text") do
+  fill_in("Question Title", with: 'q12', :match => :prefer_exact)
+end
+
+Then("I give input question custom") do
+  fill_in("Question Title", with: 'q2', :match => :prefer_exact)
+end
+
+Then("I give input question options one") do
+  fill_in("Question Title", with: 'q3', :match => :prefer_exact)
+end
+
+Then("I give input question options two") do
+  fill_in("Question Title", with: 'q4', :match => :prefer_exact)
+end
 
 Then("I attach {string}") do |string|
   attach_file('string', File.absolute_path('./features/users/as.txt'))
@@ -264,10 +282,45 @@ Then("I sign out") do
 end
 
 Then("I go to options page") do
-  visit '/projects/7/questions/10/options/new'
+  visit '/projects/1/questions/1/options/new'
 end
 
 
 Then("I fill details") do
   fill_in("Option", with: 'option1', :match => :prefer_exact)
+end
+
+Then("I fill values") do
+  fill_in("Option", with: 'option1', :match => :prefer_exact)
+end
+
+Then("I fill child details options") do
+  fill_in("Question Title", with: 'option2child', :match => :prefer_exact)
+end
+
+Then("I fill in the details") do
+  fill_in("Question Title", with: 'option2child', :match => :prefer_exact)
+end
+
+Then("I click on Save Answer") do
+  
+  click_button(class: 'btn btn-default btn btn-primary btn-sm')
+end
+
+
+
+Then("I click on Add current reference to file") do
+  click_button(class: 'btn btn-primary btn-sm')
+end
+
+Then("I download Latest Answers") do
+  visit 'downloads.csv?type=latest'
+end
+
+Then("I download All Answers") do
+  visit 'downloads.csv?type=all'
+end
+
+Then("I download Own Answers") do
+  visit 'downloads.csv?type=own'
 end
