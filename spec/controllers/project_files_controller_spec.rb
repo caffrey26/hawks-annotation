@@ -26,4 +26,19 @@ RSpec.describe ProjectFilesController, type: :controller do
                  response.should render_template :new
         end
     end
+    
+     describe "GET #create" do
+      it "creates files" do 
+        file_params = FactoryGirl.attributes_for(:file)
+       post :create, :project_file => file_params, :project_id => @project.id
+        response.should render_template :new 
+      end
+      
+       it "does not change count with invalid parameters" do 
+        file_params = FactoryGirl.attributes_for(:file)
+        expect { post :create, :project_file => file_params, :project_id => @project.id}.to change(ProjectFile, :count).by(0) 
+      end
+      end
+    
+    
 end

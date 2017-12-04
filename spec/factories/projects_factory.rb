@@ -68,6 +68,7 @@ FactoryGirl.define do
   end
   factory :file do
     file_name "file 1"
-    attachment "no file"
+    description "text file"
+    
   end
   end
