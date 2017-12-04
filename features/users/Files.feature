@@ -23,7 +23,7 @@ Feature: New project has to be created
         Then I should go to add a new file page
         Then I should fill in values
         #Then I click_link "Attachment"
-        Then I attach file "Attachment" to "/features/users/as.txt"
+        Then I attach file "Attachment" to "/features/users/login.feature"
         #Then I should see "random"
         #Then I upload file
         Then I click_button "Create Project file"

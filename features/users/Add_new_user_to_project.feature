@@ -17,7 +17,8 @@ Feature: New project has to be created
         Then I go to add users page
         #Then I click_link "submit"
         #Then I should see "random"
-        Then I click_link "Sign Out"
+        
+        Then I click_link "Sign out"
         
         
         

@@ -17,7 +17,7 @@ Feature: New project has to be created
         Then I go to files page
         Then I should go to add a new file page
         Then I should fill in values
-        Then I attach file "Attachment" to "/features/users/as.txt"
+        Then I attach file "Attachment" to "/features/users/login.feature"
         Then I click_button "Create Project file"
         Then I go to questions page
         Then I click_button "Search"
@@ -60,7 +60,7 @@ Feature: New project has to be created
         Then I go to files page
         Then I should go to add a new file page
         Then I should fill in values
-        Then I attach file "Attachment" to "/features/users/as.txt"
+        Then I attach file "Attachment" to "/features/users/login.feature"
         Then I click_button "Create Project file"
         Then I go to add a new question page
         Then I give input question custom
@@ -104,7 +104,7 @@ Feature: New project has to be created
         Then I go to files page
         Then I should go to add a new file page
         Then I should fill in values
-        Then I attach file "Attachment" to "/features/users/as.txt"
+        Then I attach file "Attachment" to "/features/users/login.feature"
         Then I click_button "Create Project file"
         Then I go to questions page
         Then I click_button "Search"
@@ -151,7 +151,7 @@ Feature: New project has to be created
         Then I go to files page
         Then I should go to add a new file page
         Then I should fill in values
-        Then I attach file "Attachment" to "/features/users/as.txt"
+        Then I attach file "Attachment" to "/features/users/login.feature"
         Then I click_button "Create Project file"
         Then I go to questions page
         Then I click_button "Search"
