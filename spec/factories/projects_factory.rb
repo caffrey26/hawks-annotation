@@ -57,6 +57,9 @@ FactoryGirl.define do
     option_text "option 1"
     question_id 10000
   end
+  factory :answer do
+    answer_text "Answer test"  
+  end
   factory :invalid_option, parent: :option do
     option_text "Yes" 
   end
