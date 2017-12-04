@@ -14,6 +14,11 @@ Feature: New project has to be created
         Then I create new project title and description
         Then I click "Create Project"
         Then I click_link "something"
+        Then I go to files page
+        Then I should go to add a new file page
+        Then I should fill in values
+        Then I attach file "Attachment" to "/features/users/as.txt"
+        Then I click_button "Create Project file"
         Then I go to questions page
         Then I click_button "Search"
         Then I go to add a new question page
@@ -27,7 +32,8 @@ Feature: New project has to be created
         
         Then I go to Answers page
         Then I click_link "q12"
-        Then I click on Save Answer
+        #Then I should see "random"
+        Then I click save answer
         Then I click on Add current reference to file
         
         

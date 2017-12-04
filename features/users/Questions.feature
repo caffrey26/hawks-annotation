@@ -14,6 +14,11 @@ Feature: New project has to be created
         Then I create new project title and description
         Then I click "Create Project"
         Then I click_link "something"
+        Then I go to files page
+        Then I should go to add a new file page
+        Then I should fill in values
+        Then I attach file "Attachment" to "/features/users/as.txt"
+        Then I click_button "Create Project file"
         Then I go to questions page
         Then I click_button "Search"
         Then I go to add a new question page
@@ -52,6 +57,11 @@ Feature: New project has to be created
         Then I click_link "something"
         Then I go to questions page
         Then I click_button "Search"
+        Then I go to files page
+        Then I should go to add a new file page
+        Then I should fill in values
+        Then I attach file "Attachment" to "/features/users/as.txt"
+        Then I click_button "Create Project file"
         Then I go to add a new question page
         Then I give input question custom
         Then I choose "Create Custom Options"
@@ -60,6 +70,12 @@ Feature: New project has to be created
         Then I click_link "Add Options"
         Then I fill values
         Then I click_button "Create Option"
+        
+        Then I go to edit custom page
+        Then I click_button "Update Option"
+        
+       
+        
         
         Then I click_link "Copy Question"
         
@@ -85,6 +101,11 @@ Feature: New project has to be created
         Then I create new project title and description
         Then I click "Create Project"
         Then I click_link "something"
+        Then I go to files page
+        Then I should go to add a new file page
+        Then I should fill in values
+        Then I attach file "Attachment" to "/features/users/as.txt"
+        Then I click_button "Create Project file"
         Then I go to questions page
         Then I click_button "Search"
         Then I go to add a new question page
@@ -92,6 +113,16 @@ Feature: New project has to be created
         Then I choose "Template: True/False"
         Then I click_button "Create Question"
         Then I click_link "q3"
+        
+        
+        
+        Then I go to edit page
+        Then I fill in edit values
+        Then I choose "Template: True/False"
+        Then I click_button "Update Question"
+        
+        Then I go to other edit page
+        Then I click_button "Update Option"
         
         Then I click_link "Add Child Question"
         Then I fill in the details
@@ -102,6 +133,7 @@ Feature: New project has to be created
         Then I fill in the details
         Then I choose "Template: True/False"
         Then I click_button "Create Question"
+        
         
         
         
@@ -116,6 +148,11 @@ Feature: New project has to be created
         Then I create new project title and description
         Then I click "Create Project"
         Then I click_link "something"
+        Then I go to files page
+        Then I should go to add a new file page
+        Then I should fill in values
+        Then I attach file "Attachment" to "/features/users/as.txt"
+        Then I click_button "Create Project file"
         Then I go to questions page
         Then I click_button "Search"
         Then I go to add a new question page
@@ -123,6 +160,9 @@ Feature: New project has to be created
         Then I choose "Template: Yes/No/Maybe"
         Then I click_button "Create Question"
         Then I click_link "q4"
+        Then I go to remove page
+        Then I click_button "Update Option"
+        Then I click_link "Delete"
         
         
        

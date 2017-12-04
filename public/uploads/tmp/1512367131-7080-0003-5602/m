@@ -1,0 +1,37 @@
+ <%= select_tag 'file_selected', options_from_collection_for_select(@files, :id, :file_name), :selected => @file.id %> </br> </br>
+
+
+ </br><%= link_to "Submit Answer", project_answers_path(@answer), class: "btn btn-primary" %>
+
+
+
+
+  var scriptTag = '<script  src="https://hypothes.is/embed.js" async><';
+  scriptTag +=  "/script>";
+  console.log(scriptTag);
+  $("#content_viewer").append(scriptTag);
+
+
+
+display_file_project_answers_path(file_id: f.id), remote: true
+
+
+
+//$('#file_preview').html("<%=escape_javascript(render :partial=>"display_file")%>");
+
+
+##device forgot passsword found in device/shared/_links
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+<% end -%>
+
+
+
+
+
+<%=link_to "+ Batch upload", new_multile_files_project_project_files_path(project_id: params[:project_id]), class: "btn btn-primary" %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+resources :project_files do
+      collection do
+        get :new_multile_files
+      end
+    end
