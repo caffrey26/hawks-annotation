@@ -58,7 +58,10 @@ FactoryGirl.define do
     question_id 10000
   end
   factory :invalid_option, parent: :option do
-    option_text "Yes"
+    option_text "Yes" 
+  end
+  factory :invalid_option1, parent: :option do
+    option_text nil
   end
   factory :file do
     file_name "file 1"
