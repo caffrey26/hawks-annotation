@@ -68,6 +68,6 @@ FactoryGirl.define do
   end
   factory :file do
     file_name "file 1"
-    project 1
+    attachment "no file"
   end
   end
