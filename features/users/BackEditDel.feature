@@ -15,12 +15,15 @@ Feature: New project has to be created
         Then I click "Create Project"
         Then I click_link "something"
         
+        
+        
         Then I click_link "Edit"
         Then I update values
         Then I click "Update Project"
         Then I click_link "Back"
         Then I click_link "something"
         Then I click_link "Delete"
+        
         
        
   
