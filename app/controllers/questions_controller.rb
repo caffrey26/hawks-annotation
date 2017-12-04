@@ -24,10 +24,10 @@ class QuestionsController < ApplicationController
           if @option1.valid? and @option2.valid? then
             @option1.save
             @option2.save
-          else
-            @parent_id =  params[:question][:parent_id]
-            @url = project_questions_path
-            render :new
+          # else
+          #   @parent_id =  params[:question][:parent_id]
+          #   @url = project_questions_path
+          #   render :new
           end
         end  
           
@@ -42,10 +42,10 @@ class QuestionsController < ApplicationController
             @option1.save
             @option2.save
             @option3.save
-          else
-            @parent_id =  params[:question][:parent_id]
-            @url = project_questions_path
-            render :new
+          # else
+          #   @parent_id =  params[:question][:parent_id]
+          #   @url = project_questions_path
+          #   render :new
           end
         end
         if params[:question][:parent_id].empty? then 
@@ -101,11 +101,11 @@ class QuestionsController < ApplicationController
                     old_record.options.each do |o|
                       new_option = o.dup
                       new_option.question_id = new_record.id
-                      if new_option.save then
-                      else
-                        flash[:notice] = new_option.errors.full_messages
-                        return redirect_to copy_question_path(project_id: params[:project_id])
-                      end
+                      new_option.save 
+                      # else
+                      #   flash[:notice] = new_option.errors.full_messages
+                      #   return redirect_to copy_question_path(project_id: params[:project_id])
+                      # end
                     end
                   end
                   # if old_record.child_questions.present? then
