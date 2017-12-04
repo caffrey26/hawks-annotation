@@ -14,5 +14,7 @@ Feature: New project has to be created
         Then I create new project title and description
         Then I click "Create Project"
         Then I click_link "something"
+        Then I click_button "abhi@gmail.com"
+        #Then I click_button "Sign Out"
         
         Then I sign out

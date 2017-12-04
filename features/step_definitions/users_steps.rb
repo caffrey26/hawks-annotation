@@ -84,6 +84,14 @@ When("I fill in  test values") do
  
 end
 
+When("I fill in  test values again") do
+  
+  fill_in("Email", with: 'abhi2@gmail.com', :match => :prefer_exact)
+  fill_in("Password", with: '12345678', :match => :prefer_exact)
+  fill_in("Password confirmation", with: '12345678', :match => :prefer_exact)
+  
+end
+
 Then("click {string}") do |string|
   click_button(string)
     
@@ -109,7 +117,7 @@ end
 
 When("I login") do
   visit '/users/sign_up'
-  expect(page).to have_content("Password confirmation")
+  #expect(page).to have_content("Password confirmation")
   
   fill_in("Email", with: 'abhi@gmail.com', :match => :prefer_exact)
   fill_in("Password", with: '12345678', :match => :prefer_exact)
@@ -158,14 +166,6 @@ end
 
 When("I press {string}") do |string|
   click_link(string)
-end
-
-Then("I should go to Forgot password page") do
-  visit '/users/password/new'
-end
-
-Then("I should give Mail ID to get reset password") do
-  fill_in("Email", with: 'test@test.com', :match => :prefer_exact)
 end
 
 Then("I click {string}") do |string|
@@ -225,7 +225,7 @@ Then("I should go to add a new file page") do
 end
 
 Then("I should fill in values") do
-  fill_in("Name of the File", with: 'something', :match => :prefer_exact)
+  fill_in("Name of the File", with: 'something1', :match => :prefer_exact)
   
 end
 
@@ -252,7 +252,25 @@ Then("I add values to child") do
   fill_in("Question Title", with: 'cq1', :match => :prefer_exact)
 end
 
+Then("I add values to child page") do
+  fill_in("Question Title", with: 'cq11', :match => :prefer_exact)
+end
 
+Then("I give input question text") do
+  fill_in("Question Title", with: 'q12', :match => :prefer_exact)
+end
+
+Then("I give input question custom") do
+  fill_in("Question Title", with: 'q2', :match => :prefer_exact)
+end
+
+Then("I give input question options one") do
+  fill_in("Question Title", with: 'q3', :match => :prefer_exact)
+end
+
+Then("I give input question options two") do
+  fill_in("Question Title", with: 'q4', :match => :prefer_exact)
+end
 
 Then("I attach {string}") do |string|
   attach_file('string', File.absolute_path('./features/users/as.txt'))
@@ -264,10 +282,99 @@ Then("I sign out") do
 end
 
 Then("I go to options page") do
-  visit '/projects/7/questions/10/options/new'
+  visit '/projects/1/questions/1/options/new'
 end
 
 
 Then("I fill details") do
   fill_in("Option", with: 'option1', :match => :prefer_exact)
+end
+
+Then("I fill values") do
+  fill_in("Option", with: 'option1', :match => :prefer_exact)
+end
+
+Then("I fill child details options") do
+  fill_in("Question Title", with: 'option2child', :match => :prefer_exact)
+end
+
+Then("I fill in the details") do
+  fill_in("Question Title", with: 'option2child', :match => :prefer_exact)
+end
+
+Then("I click on Save Answer") do
+  
+  click_button(id: 'something')
+end
+
+
+
+Then("I click on Add current reference to file") do
+  find(:xpath, '//*[@id="collapse22"]/div/a')
+end
+
+Then("I download Latest Answers") do
+  visit 'downloads.csv?type=latest'
+end
+
+Then("I download All Answers") do
+  visit 'downloads.csv?type=all'
+end
+
+Then("I download Own Answers") do
+  visit 'downloads.csv?type=own'
+end
+
+Then("I click save answer") do
+  #find('.btn btn-default btn btn-primary btn-sm').click
+  #find(:xpath, '//*[@id="something"]')
+  #click_link "Save Answer"
+  #find("something", visible: false).click
+  page.find('#something', visible: false).click
+end
+
+Then("I click question") do
+  #find('.panel panel-default').click
+  #find(:xpath, '//*[@id="something"]')
+  page.find('.panel-heading').click
+end
+
+
+
+Then("I go to edit page") do
+  visit '/projects/1/questions/1/edit'
+end
+
+Then("I fill in edit values") do
+  fill_in("Question Title", with: 'q12', :match => :prefer_exact)
+end
+
+Then("I go to other edit page") do
+  visit '/projects/1/questions/1/options/2/edit'
+end
+
+Then("I go to edit custom page") do
+  visit '/projects/1/questions/1/options/1/edit'
+end
+
+Then("I go to remove question page") do
+  visit '/projects/6/questions/24/options/15'
+end
+
+Then("I attach file {string} to {string}") do |string, string2|
+  page.attach_file string, File.join(Rails.root, string2)
+end
+
+Then("I go to remove page") do
+  visit '/projects/1/questions/1/options/1/edit'
+end
+
+Then("I go to add users page") do
+  visit '/projects/1/show_and_select_user'
+end
+
+When("I fill in  test values second") do
+  fill_in("Email", with: 'abhi2@gmail.com', :match => :prefer_exact)
+  fill_in("Password", with: '12345678', :match => :prefer_exact)
+  fill_in("Password confirmation", with: '12345678', :match => :prefer_exact)
 end

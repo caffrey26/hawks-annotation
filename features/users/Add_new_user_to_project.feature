@@ -14,4 +14,14 @@ Feature: New project has to be created
         Then I create new project title and description
         Then I click "Create Project"
         Then I click_link "something"
-        Then I go to add new user page
+        Then I go to add users page
+        #Then I click_link "submit"
+        #Then I should see "random"
+        
+        Then I click_link "Sign out"
+        
+        
+        
+        
+        
+      
