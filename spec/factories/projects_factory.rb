@@ -18,7 +18,30 @@ FactoryGirl.define do
   end
   factory :question do
     title { Faker::Name.title }
+    parent_id ""
     description "question description"
+    q_type "TF"
+  end
+  factory :question1, parent: :question do
+    title { Faker::Name.title }
+    parent_id ""
+    description "question description"
+    q_type "YN"
+  end
+  factory :child_question, parent: :question do
+    title { Faker::Name.title }
+    parent_id 1
+    description "question description"
+    q_type "YN"
+  end
+  factory :invalid_question, parent: :question do
+    
+    invalid_option
+    id 10000
+    title { Faker::Name.title }
+    parent_id ""
+    description "question description"
+    q_type "YN"
   end
   factory :service do
     title { Faker::Name.title }
@@ -32,10 +55,19 @@ FactoryGirl.define do
   
   factory :option do
     option_text "option 1"
+    question_id 10000
   end
-  
+  factory :answer do
+    answer_text "Answer test"  
+  end
+  factory :invalid_option, parent: :option do
+    option_text "Yes" 
+  end
+  factory :invalid_option1, parent: :option do
+    option_text nil
+  end
   factory :file do
     file_name "file 1"
-    project 1
+    attachment "no file"
   end
   end
