@@ -9,7 +9,7 @@ class DownloadsController < ApplicationController
     if params[:type] == "latest" then
       # @answers = Answer.group(:question_id)
       # @answers = Answer.where("created_at in (SELECT MAX(answers.created_at) FROM answers GROUP BY answers.question_id ORDER BY MAX(created_at) DESC)")
-      @answers = Answer.where("project_id in (?) and created_at in (SELECT MAX(answers.created_at) FROM answers GROUP BY answers.question_id ORDER BY MAX(created_at) DESC)", params[:project_id])
+      @answers = Answer.where("project_id in (?) and updated_at in (SELECT MAX(answers.updated_at) FROM answers GROUP BY answers.question_id ORDER BY MAX(updated_at) DESC)", params[:project_id])
     
     end
     if params[:type] == "all" then
