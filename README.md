@@ -5,4 +5,4 @@ Team HAWKS
 ===========
 
 Annotating App for Legal Documents:
-[http://hawks-demo.herokuapp.com](http://hawks-demo.herokuapp.com)
+[https://hawks-annotation-final-demo.herokuapp.com/](https://hawks-annotation-final-demo.herokuapp.com/)
